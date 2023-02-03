@@ -26,6 +26,8 @@ public class PlayerGrowthController : MonoBehaviour
         {
             // 栄養に抵抗された
             Gekkou.Log.Info(this, "Game Over");
+            _growthParameters.UploadParameter();
+            //Gekkou.SceneSystemManager.Instance.SceneLoading();
         }
     }
 

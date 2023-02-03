@@ -28,9 +28,28 @@ public class PlayerGrowthParameters : MonoBehaviour
     /// <summary> 吸収力 </summary>
     public int AbsorptionPower { get => _growthParameters[(int)GrowthType.Absorption]; }
 
+    private void Awake()
+    {
+        SettingParameter();
+    }
+
     public void SetParameter(GrowthType type, int value)
     {
         _growthParameters[(int)type] += value;
     }
 
+    public void UploadParameter()
+    {
+        GrowthParameterManager.Instance.UploadParameter(_growthParameters);
+    }
+
+    private void SettingParameter()
+    {
+        var param = GrowthParameterManager.Instance.GrowthParameters;
+
+        for (int i = 0; i < _growthParameters.Length; i++)
+        {
+            _growthParameters[i] = param[i];
+        }
+    }
 }
