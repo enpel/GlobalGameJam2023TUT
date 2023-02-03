@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Gekkou/GekkouScene.unity
+    guid: bf27f9a77d1c52440bd161d8e4979686
   m_configObjects: {}
