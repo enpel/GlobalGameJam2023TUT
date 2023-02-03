@@ -16,6 +16,16 @@ namespace Gekkou
             }
         }
 
+        [MenuItem("Tools/Gekkou/OpenScene/saltn Scenes")]
+        private static void OpensaltnScenesScene()
+        {
+            // シーンの変更があった場合にどうするか聞く
+            if (UnityEditor.SceneManagement.EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo())
+            {
+                UnityEditor.SceneManagement.EditorSceneManager.OpenScene("Assets/Scenes/saltn Scenes.unity");
+            }
+        }
+
 
         [MenuItem("Tools/Gekkou/OpenScene/SampleScene")]
         private static void OpenSampleSceneScene()
