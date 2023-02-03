@@ -2,4 +2,5 @@
 public static class Scene
 {
 	public const string GekkouScene = "GekkouScene";
+	public const string ResultScene = "Result Scene";
 }
