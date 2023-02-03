@@ -8,4 +8,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Gekkou/GekkouScene.unity
     guid: bf27f9a77d1c52440bd161d8e4979686
+  - enabled: 1
+    path: Assets/Scenes/Result Scene.unity
+    guid: 39be83920ae924d48a7a3e60747e0b2a
   m_configObjects: {}
