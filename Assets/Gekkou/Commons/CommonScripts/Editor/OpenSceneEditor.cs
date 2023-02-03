@@ -43,6 +43,7 @@ namespace Gekkou
 
         private static void OnPostprocessAllAssets(string[] importedAssetPaths, string[] deletedAssetPaths, string[] movedAssetPaths, string[] movedFromAssetPaths)
         {
+            /*
             var contain = false;
             var paths = new List<string>();
             paths.AddRange(importedAssetPaths);
@@ -61,6 +62,7 @@ namespace Gekkou
             {
                 EditorApplication.delayCall = () => OpenSceneCreater(false);
             }
+            */
         }
 
         [MenuItem("Tools/Gekkou/Create/OpenScene")]

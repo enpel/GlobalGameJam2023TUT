@@ -16,6 +16,7 @@ namespace Gekkou
             }
         }
 
+
         [MenuItem("Tools/Gekkou/OpenScene/saltn Scenes")]
         private static void OpensaltnScenesScene()
         {
