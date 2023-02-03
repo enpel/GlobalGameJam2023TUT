@@ -1,0 +1,7 @@
+using UnityEngine;
+
+[CreateAssetMenu(fileName = "#SCRIPTNAME#", menuName = "DataBase/New #SCRIPTNAME#")]
+public class #SCRIPTNAME# : ScriptableObject
+{
+    private int value;
+}
