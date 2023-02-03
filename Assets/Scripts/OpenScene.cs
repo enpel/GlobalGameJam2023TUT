@@ -6,6 +6,17 @@ namespace Gekkou
     public class OpenScene
     { 
         
+        [MenuItem("Tools/Gekkou/OpenScene/GekkouScene")]
+        private static void OpenGekkouSceneScene()
+        {
+            // シーンの変更があった場合にどうするか聞く
+            if (UnityEditor.SceneManagement.EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo())
+            {
+                UnityEditor.SceneManagement.EditorSceneManager.OpenScene("Assets/Gekkou/GekkouScene.unity");
+            }
+        }
+
+
         [MenuItem("Tools/Gekkou/OpenScene/SampleScene")]
         private static void OpenSampleSceneScene()
         {
