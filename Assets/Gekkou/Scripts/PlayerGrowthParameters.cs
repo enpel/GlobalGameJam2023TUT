@@ -28,6 +28,11 @@ public class PlayerGrowthParameters : MonoBehaviour
     /// <summary> 吸収力 </summary>
     public int AbsorptionPower { get => _growthParameters[(int)GrowthType.Absorption]; }
 
+    public int GetParameter(GrowthType type)
+    {
+        return _growthParameters[(int)type];
+    }
+
     private void Awake()
     {
         SettingParameter();
