@@ -6,13 +6,24 @@ namespace Gekkou
     public class OpenScene
     { 
         
-        [MenuItem("Tools/Gekkou/OpenScene/PlayerMovementScene")]
-        private static void OpenPlayerMovementSceneScene()
+        [MenuItem("Tools/Gekkou/OpenScene/GekkouScene")]
+        private static void OpenGekkouSceneScene()
         {
             // シーンの変更があった場合にどうするか聞く
             if (UnityEditor.SceneManagement.EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo())
             {
-                UnityEditor.SceneManagement.EditorSceneManager.OpenScene("Assets/Scenes/PlayerMovementScene.unity");
+                UnityEditor.SceneManagement.EditorSceneManager.OpenScene("Assets/Gekkou/GekkouScene.unity");
+            }
+        }
+
+
+        [MenuItem("Tools/Gekkou/OpenScene/saltn Scenes")]
+        private static void OpensaltnScenesScene()
+        {
+            // シーンの変更があった場合にどうするか聞く
+            if (UnityEditor.SceneManagement.EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo())
+            {
+                UnityEditor.SceneManagement.EditorSceneManager.OpenScene("Assets/Scenes/saltn Scenes.unity");
             }
         }
 
