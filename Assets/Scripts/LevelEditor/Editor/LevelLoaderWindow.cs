@@ -95,7 +95,6 @@ public class LevelLoaderWindow : EditorWindow
 
          string line = "";
          float placePositionY = 0;
-         reader.ReadLine();
          while (reader.Peek() > -1) {
              line = reader.ReadLine();
              string[] Splits = line.Split(',');
