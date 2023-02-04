@@ -123,75 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1001 &2428419
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4153959432676728784, guid: d3467e63f4c374947bb632132a7172d4, type: 3}
-      propertyPath: m_RootOrder
-      value: 18
-      objectReference: {fileID: 0}
-    - target: {fileID: 4153959432676728784, guid: d3467e63f4c374947bb632132a7172d4, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 3.54
-      objectReference: {fileID: 0}
-    - target: {fileID: 4153959432676728784, guid: d3467e63f4c374947bb632132a7172d4, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -24.84
-      objectReference: {fileID: 0}
-    - target: {fileID: 4153959432676728784, guid: d3467e63f4c374947bb632132a7172d4, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4153959432676728784, guid: d3467e63f4c374947bb632132a7172d4, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4153959432676728784, guid: d3467e63f4c374947bb632132a7172d4, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4153959432676728784, guid: d3467e63f4c374947bb632132a7172d4, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4153959432676728784, guid: d3467e63f4c374947bb632132a7172d4, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4153959432676728784, guid: d3467e63f4c374947bb632132a7172d4, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4153959432676728784, guid: d3467e63f4c374947bb632132a7172d4, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4153959432676728784, guid: d3467e63f4c374947bb632132a7172d4, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4153959432676728797, guid: d3467e63f4c374947bb632132a7172d4, type: 3}
-      propertyPath: m_Name
-      value: Larva
-      objectReference: {fileID: 0}
-    - target: {fileID: 7119124697471591955, guid: d3467e63f4c374947bb632132a7172d4, type: 3}
-      propertyPath: _nutritionType
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7119124697471591955, guid: d3467e63f4c374947bb632132a7172d4, type: 3}
-      propertyPath: _resistPenetrationPower
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: d3467e63f4c374947bb632132a7172d4, type: 3}
 --- !u!1001 &108185331
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -247,6 +178,10 @@ PrefabInstance:
     - target: {fileID: 2431119053005372074, guid: 0e968e4dbbbf3fa45a05c6e9aef5d1b1, type: 3}
       propertyPath: m_Name
       value: Earthworm (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2431119053005372075, guid: 0e968e4dbbbf3fa45a05c6e9aef5d1b1, type: 3}
+      propertyPath: _growthType
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2431119053005372075, guid: 0e968e4dbbbf3fa45a05c6e9aef5d1b1, type: 3}
       propertyPath: _nutritionType
@@ -318,6 +253,10 @@ PrefabInstance:
       value: Earthworm (6)
       objectReference: {fileID: 0}
     - target: {fileID: 2431119053005372075, guid: 0e968e4dbbbf3fa45a05c6e9aef5d1b1, type: 3}
+      propertyPath: _growthType
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2431119053005372075, guid: 0e968e4dbbbf3fa45a05c6e9aef5d1b1, type: 3}
       propertyPath: _nutritionType
       value: 0
       objectReference: {fileID: 0}
@@ -385,6 +324,10 @@ PrefabInstance:
     - target: {fileID: 2431119053005372074, guid: 0e968e4dbbbf3fa45a05c6e9aef5d1b1, type: 3}
       propertyPath: m_Name
       value: Earthworm (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2431119053005372075, guid: 0e968e4dbbbf3fa45a05c6e9aef5d1b1, type: 3}
+      propertyPath: _growthType
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2431119053005372075, guid: 0e968e4dbbbf3fa45a05c6e9aef5d1b1, type: 3}
       propertyPath: _nutritionType
@@ -456,6 +399,10 @@ PrefabInstance:
       value: Earthworm (2)
       objectReference: {fileID: 0}
     - target: {fileID: 2431119053005372075, guid: 0e968e4dbbbf3fa45a05c6e9aef5d1b1, type: 3}
+      propertyPath: _growthType
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2431119053005372075, guid: 0e968e4dbbbf3fa45a05c6e9aef5d1b1, type: 3}
       propertyPath: _nutritionType
       value: 0
       objectReference: {fileID: 0}
@@ -525,6 +472,10 @@ PrefabInstance:
       value: Earthworm (3)
       objectReference: {fileID: 0}
     - target: {fileID: 2431119053005372075, guid: 0e968e4dbbbf3fa45a05c6e9aef5d1b1, type: 3}
+      propertyPath: _growthType
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2431119053005372075, guid: 0e968e4dbbbf3fa45a05c6e9aef5d1b1, type: 3}
       propertyPath: _nutritionType
       value: 0
       objectReference: {fileID: 0}
@@ -576,7 +527,7 @@ MonoBehaviour:
   m_parentTransform: {fileID: 1426915838}
   m_fibrousRootInterval: 5
   m_rootPosDiff: 0.7
-  testGoalYPos: -50
+  m_dammyGoalYPos: -50
 --- !u!4 &970174938
 Transform:
   m_ObjectHideFlags: 0
@@ -1627,6 +1578,10 @@ PrefabInstance:
     - target: {fileID: 2431119053005372074, guid: 0e968e4dbbbf3fa45a05c6e9aef5d1b1, type: 3}
       propertyPath: m_Name
       value: Earthworm (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2431119053005372075, guid: 0e968e4dbbbf3fa45a05c6e9aef5d1b1, type: 3}
+      propertyPath: _growthType
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2431119053005372075, guid: 0e968e4dbbbf3fa45a05c6e9aef5d1b1, type: 3}
       propertyPath: _nutritionType
