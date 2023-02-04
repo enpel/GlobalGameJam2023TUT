@@ -10,7 +10,7 @@ public class FibrousRootManager : MonoBehaviour
     [SerializeField] Transform m_parentTransform;
     [SerializeField] int m_fibrousRootInterval;
     [SerializeField] float m_rootPosDiff;
-    [SerializeField] float testGoalYPos;
+    [SerializeField] float m_dammyGoalYPos;
 
     Spline m_rootSpline;
 
@@ -24,7 +24,8 @@ public class FibrousRootManager : MonoBehaviour
 
     void Update()
     {
-        if (m_player.transform.position.y < testGoalYPos)
+        // ダミー
+        if (m_player.transform.position.y < m_dammyGoalYPos)
         {
             DrawFabirousRoots();
         }
