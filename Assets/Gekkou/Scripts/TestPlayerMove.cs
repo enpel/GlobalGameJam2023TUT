@@ -10,10 +10,10 @@ public class TestPlayerMove : MonoBehaviour
     private void Update()
     {
         if (Input.GetKey(KeyCode.W))
-            transform.position += Vector3.forward * _moveSpeed;
+            transform.position += Vector3.up * _moveSpeed;
 
         if (Input.GetKey(KeyCode.S))
-            transform.position += Vector3.back * _moveSpeed;
+            transform.position += Vector3.down * _moveSpeed;
 
         if (Input.GetKey(KeyCode.A))
             transform.position += Vector3.left * _moveSpeed;
