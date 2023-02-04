@@ -9,8 +9,9 @@ public class EiyouPattern : MonoBehaviour
     [SerializeField] GameObject[] patterns;
     void Start()
     {
+        var parent = this.transform;
         // ランダムにパターンを選出
-        Instantiate(patterns.GetRandom());
+        Instantiate(patterns.GetRandom(), parent);
     }
 
     // Update is called once per frame
