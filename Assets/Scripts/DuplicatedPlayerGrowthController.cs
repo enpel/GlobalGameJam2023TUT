@@ -43,7 +43,7 @@ public class DuplicatedPlayerGrowthController : MonoBehaviour
     {
         if (other.CompareTag("Layer_Rock"))
         {
-            _fibousRootController.DrawFabirousRoots();
+            _fibousRootController.InstantiateFabirousRoots();
         }
         if (other.TryGetComponent(out Nutrition nutrition))
         {
