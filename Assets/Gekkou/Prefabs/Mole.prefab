@@ -147,10 +147,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9408c5d3db5144c46a8707e789c64604, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _nutritionType: 1
+  _nutritionType: 0
   _growthType: 0
   _nutritionQuantity: 15
-  _resistPenetrationPower: 5
+  _resistPenetrationPower: 0
   _disableTime: 1.5
   _moveSpeed: 50
   _rotateSpeed: 0.01

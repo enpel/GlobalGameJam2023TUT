@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 6547506881933856555}
   - component: {fileID: 6547506881933856554}
   - component: {fileID: 6095014142797104761}
+  - component: {fileID: 9023895694922604316}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -123,6 +124,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_speed: 5
+  _growthSpeed: 1
+  _growthSpeedCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 10
+      value: 3
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!114 &6547506881933856555
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -136,7 +162,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _growthParameters: {fileID: 6547506881933856554}
-  particlePrefab: {fileID: 8753162621821619047, guid: 35b642bf181286d4683d94a28ee18266, type: 3}
   sound1: {fileID: 8300000, guid: 1dce80f49c86d0045aad772413c61a56, type: 3}
 --- !u!114 &6547506881933856554
 MonoBehaviour:
@@ -247,6 +272,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &9023895694922604316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6547506881933856556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 970a696952aa0d546a6d92aeaf036af0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioType: 0
+  audioSource: {fileID: 6095014142797104761}
 --- !u!1 &7095834270238617228
 GameObject:
   m_ObjectHideFlags: 0

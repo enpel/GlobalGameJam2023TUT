@@ -6,6 +6,20 @@ public class PlayerMovementController : SingletonMonobehavior<PlayerMovementCont
 {
     [SerializeField] float m_speed;
 
+
+    [SerializeField]
+    private float _growthSpeed = 1.0f;
+    public float GrowthRate // 成長速度の数値をもとに加算量を計算・保存
+    {
+        set
+        {
+            _growthSpeed = _growthSpeedCurve.Evaluate(value);
+        }
+    }
+
+    [SerializeField]
+    private AnimationCurve _growthSpeedCurve;
+
     protected override void Awake()
     {
         Instance = this;
@@ -28,7 +42,7 @@ public class PlayerMovementController : SingletonMonobehavior<PlayerMovementCont
         Vector3 direction = new(screenPos.x - viewSize.x / 2, Mathf.Clamp((screenPos.y - viewSize.y / 2), (screenPos.y - viewSize.y / 2), 0.0f), 0.0f);
         direction = direction.normalized;
 
-        // 移動
-        transform.position += m_speed * Time.deltaTime * direction;
+        // 移動 成長速度は、通常速度に加算していく
+        transform.position += (m_speed + _growthSpeed) * Time.deltaTime * direction;
     }
 }
