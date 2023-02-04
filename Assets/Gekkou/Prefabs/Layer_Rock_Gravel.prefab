@@ -150,5 +150,5 @@ MonoBehaviour:
   _nutritionType: 1
   _growthType: 4
   _nutritionQuantity: 10
-  _resistPenetrationPower: 10
+  _resistPenetrationPower: 20
   _disableTime: 0.5

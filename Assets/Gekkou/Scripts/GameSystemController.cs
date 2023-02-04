@@ -104,6 +104,8 @@ public class GameSystemController : SingletonMonobehavior<GameSystemController>
                 break;
             case GameLevel.Result:
                 BGMManager.Instance.FadeAudio(_resultBGM);
+                handTween = _handObj.transform.DOMove(_handPoses[(int)HandPos.Wait].position, _handMoveTime);
+                handTween2 = _handObj.transform.DORotateQuaternion(_handPoses[(int)HandPos.Wait].rotation, _handMoveTime);
                 IsGameLevelStop = true;
                 break;
             default:
