@@ -16,6 +16,14 @@ namespace Gekkou
 
         private GameUIManager gameUI;
 
+        public void SceneReloading()
+        {
+            if (gameUI == null)
+                gameUI = GameUIManager.Instance;
+
+            StartCoroutine(ISceneLoading(SceneManager.GetActiveScene().name));
+        }
+
         public void SceneLoading(string sceneName)
         {
             if (gameUI == null)

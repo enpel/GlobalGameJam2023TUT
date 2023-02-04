@@ -37,6 +37,8 @@ public class Mole : Nutrition
     {
         if (isDeath)
             return;
+        if (GameSystemController.Instance.IsGameLevelStop)
+            return;
 
         if (_searchTimer.LoopUpdateTimer())
         {
@@ -47,6 +49,8 @@ public class Mole : Nutrition
     private void FixedUpdate()
     {
         if (isDeath)
+            return;
+        if (GameSystemController.Instance.IsGameLevelStop)
             return;
 
         if (isSearch)

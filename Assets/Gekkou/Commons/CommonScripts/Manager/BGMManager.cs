@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-//using DG.Tweening;
+using DG.Tweening;
 
 namespace Gekkou
 {
@@ -64,6 +64,7 @@ namespace Gekkou
         {
             audioSources[newIndex].Play();
 
+            /*
             {
                 var t = 0.0f;
                 var nVolume = audioSources[newIndex].volume;
@@ -83,9 +84,10 @@ namespace Gekkou
                     yield return null;
                 }
             }
+            */
             {
-                //audioSources[newIndex].DOFade(1.0f * soundManager.BgmVolume, fadeTime);
-                //yield return audioSources[mainAudioIndex].DOFade(0.0f, fadeTime).WaitForCompletion();
+                audioSources[newIndex].DOFade(1.0f * soundManager.BgmVolume, fadeTime);
+                yield return audioSources[mainAudioIndex].DOFade(0.0f, fadeTime).WaitForCompletion();
             }
 
             audioSources[mainAudioIndex].Stop();

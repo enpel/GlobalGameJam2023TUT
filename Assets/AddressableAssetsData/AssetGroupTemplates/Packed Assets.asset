@@ -13,11 +13,33 @@ MonoBehaviour:
   m_Name: Packed Assets
   m_EditorClassIdentifier: 
   m_SchemaObjects:
+<<<<<<< HEAD
   - {fileID: 1771448860535070672}
   - {fileID: 4997126738959047809}
   m_Description: Pack assets into asset bundles.
   m_Settings: {fileID: 11400000, guid: 8793fad9c1e60254580098083e2d8b98, type: 2}
 --- !u!114 &1771448860535070672
+=======
+  - {fileID: 5434702620681511197}
+  - {fileID: 2373735963487273019}
+  m_Description: Pack assets into asset bundles.
+  m_Settings: {fileID: 11400000, guid: 59bd466fd2fad5b4ca33ac75e4a9c328, type: 2}
+--- !u!114 &2373735963487273019
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5834b5087d578d24c926ce20cd31e6d6, type: 3}
+  m_Name: ContentUpdateGroupSchema
+  m_EditorClassIdentifier: 
+  m_Group: {fileID: 0}
+  m_StaticContent: 0
+--- !u!114 &5434702620681511197
+>>>>>>> main
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -60,6 +82,7 @@ MonoBehaviour:
     m_ClassName: 
   m_BundleNaming: 0
   m_AssetLoadMode: 0
+<<<<<<< HEAD
 --- !u!114 &4997126738959047809
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -74,3 +97,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Group: {fileID: 0}
   m_StaticContent: 0
+=======
+>>>>>>> main

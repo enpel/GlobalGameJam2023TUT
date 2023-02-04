@@ -58,7 +58,7 @@ namespace Gekkou
 
         private void Init()
         {
-            _currentSensitivity = SaveSystemManager.Instance.SaveData.mouseDouble;
+            //_currentSensitivity = SaveSystemManager.Instance.SaveData.mouseDouble;
 
             _sensiSlider.minValue = _minSensi;
             _sensiSlider.maxValue = _maxSensi;
@@ -83,7 +83,7 @@ namespace Gekkou
 
         public void ResetValue()
         {
-            _currentSensitivity = SaveSystemManager.Instance.SaveData.mouseDouble;
+            //_currentSensitivity = SaveSystemManager.Instance.SaveData.mouseDouble;
             _sensiSlider.value = _currentSensitivity;
 
             ChangeValueLabel();
@@ -97,7 +97,7 @@ namespace Gekkou
 
         public void DisenablePanel()
         {
-            SaveSystemManager.Instance.SavingMouseSensitivity(_currentSensitivity);
+            //SaveSystemManager.Instance.SavingMouseSensitivity(_currentSensitivity);
 
             _sensiPanel.SetActive(false);
 

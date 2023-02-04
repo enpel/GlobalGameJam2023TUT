@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 7757311435404926646}
   - component: {fileID: 4691505065639557267}
-  - component: {fileID: 8401790461074722979}
   - component: {fileID: 5826950404032812850}
   - component: {fileID: 3154564421396735617}
+  - component: {fileID: 3497698992417321852}
   m_Layer: 0
   m_Name: Layer_Rock_Gravel
   m_TagString: Untagged
@@ -33,7 +33,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4691505065639557267
 SpriteRenderer:
@@ -87,23 +87,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8401790461074722979
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1705213582791003662}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64843bc4812ff9b41865d8f359e49151, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _nutritionType: 1
-  _growthType: 0
-  _nutritionQuantity: 0
-  _resistPenetrationPower: 10
-  _disableTime: 0.5
 --- !u!65 &5826950404032812850
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -152,3 +135,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &3497698992417321852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1705213582791003662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 273da2c29eb64fc40b3aa033db505de5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _nutritionType: 1
+  _growthType: 4
+  _nutritionQuantity: 10
+  _resistPenetrationPower: 20
+  _disableTime: 0.5
