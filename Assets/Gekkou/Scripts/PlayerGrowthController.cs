@@ -8,11 +8,14 @@ public class PlayerGrowthController : MonoBehaviour
     [SerializeField]
     private PlayerGrowthParameters _growthParameters;
     //[SerializeField] GameObject particlePrefab;
+    public AudioClip sound1;
+    AudioSource audioSource;
 
     private void Start()
     {
         if (_growthParameters == null)
             _growthParameters = PlayerGrowthParameters.Instance;
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void HitNutrition(Nutrition nutrition)
@@ -24,6 +27,7 @@ public class PlayerGrowthController : MonoBehaviour
             //Instantiate(particlePrefab, transform.position, Quaternion.identity);
             EffectManager.Instance.PlayEffect(EffectName.Absorption, transform.position);
             nutrition.AbsorbedObject();
+            audioSource.PlayOneShot(sound1);
             Log.Info(this, "Get {0} : {1} : Now {2}"
                 , nutrition.GrowthType.ToString(), nutrition.NutritionQuantity, _growthParameters.GetParameter(nutrition.GrowthType));
         }
