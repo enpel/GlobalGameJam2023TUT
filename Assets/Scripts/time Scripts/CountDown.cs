@@ -1,7 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 using Gekkou;
 
 public class CountDown : MonoBehaviour
@@ -23,7 +22,7 @@ public class CountDown : MonoBehaviour
     void Update()
     {
         // オブジェクトからTextコンポーネントを取得
-        Text count_text = count_object.GetComponent<Text>();
+        var count_text = count_object.GetComponent<TMP_Text>();
         // カウントダウン
         if (countdownSeconds > 0)
         {
