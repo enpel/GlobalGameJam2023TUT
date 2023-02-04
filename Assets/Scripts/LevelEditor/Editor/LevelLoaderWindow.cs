@@ -141,7 +141,7 @@ public class LevelLoaderWindow : EditorWindow
              string path   = AssetDatabase.GetAssetPath (prefab);//Prefabのパスを取得
              Debug.Log(path);
              
-             var clone= Instantiate(originPrefab, x.Position, Quaternion.identity);
+             var clone= Instantiate(originPrefab, x.Position, originPrefab.transform.rotation);
 
              clone.transform.parent = rootObject.transform;
          });
