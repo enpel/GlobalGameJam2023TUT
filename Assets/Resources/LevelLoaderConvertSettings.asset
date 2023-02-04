@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c903f54c05a24d94180c7c2fc72ea92c, type: 3}
-  m_Name: LevelLoaderSettings
+  m_Name: LevelLoaderConvertSettings
   m_EditorClassIdentifier: 
   _datas:
   - Key: 1

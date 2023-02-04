@@ -1,8 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.IO;
 using Cysharp.Threading.Tasks;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Networking;
+using Object = UnityEngine.Object;
 
 public class LevelLoaderWindow : EditorWindow
 {
@@ -27,6 +30,7 @@ public class LevelLoaderWindow : EditorWindow
     {
         sheetId = LevelLoaderEditorData.instance.SheetId;
         sheetName = LevelLoaderEditorData.instance.SheetName;
+        
     }
 
     async void OnGUI()
@@ -77,25 +81,75 @@ public class LevelLoaderWindow : EditorWindow
         }
         else{
             Debug.Log(request.downloadHandler.text);
-            ConvertPrefabPlaceDataFromCSV(request.downloadHandler.text);
-            await GeneratePrefab(sheetName);
+            var prefabPlaceDatas = ConvertPrefabPlaceDataFromCSV(request.downloadHandler.text);
+            GeneratePrefab(sheetName, prefabPlaceDatas);
         }
     }
 
-     void ConvertPrefabPlaceDataFromCSV(string csv)
+     List<PrefabPlaceData> ConvertPrefabPlaceDataFromCSV(string csv)
      {
-         
+         StringReader reader = new StringReader(csv);
+
+         float xOffset = -50.0f;
+         List<PrefabPlaceData> prefabPlaceData = new List<PrefabPlaceData>();
+
+         string line = "";
+         float placePositionY = 0;
+         reader.ReadLine();
+         while (reader.Peek() > -1) {
+             line = reader.ReadLine();
+             string[] Splits = line.Split(',');
+
+             for (int i = 0; i < Splits.Length; i++)
+             {
+                 var key = Splits[i].Replace("\"", "");
+                 if (string.IsNullOrWhiteSpace(Splits[i]))
+                 {
+                     continue;
+                 }
+
+                 var position = new Vector3(xOffset + i, placePositionY, 0);
+                 prefabPlaceData.Add(new PrefabPlaceData(position, key));
+             }
+
+             placePositionY-= 1;
+         }
+
+         return prefabPlaceData;
      }
 
-     async UniTask GeneratePrefab(string rootName)
+     void GeneratePrefab(string rootName, List<PrefabPlaceData> prefabPlaceDatas)
      {
-         GameObject gameObject = EditorUtility.CreateGameObjectWithHideFlags(rootName, HideFlags.HideInHierarchy);
+         LevelLoaderConvertSettings settings = Resources.Load<LevelLoaderConvertSettings>("LevelLoaderConvertSettings");
+         Dictionary<string, GameObject> prefabDictionary = settings.GetPairDataDictionary();
+         GameObject rootObject = EditorUtility.CreateGameObjectWithHideFlags(rootName, HideFlags.HideInHierarchy);
          
+         foreach (var keyValuePair in prefabDictionary)
+         {
+             Debug.Log(keyValuePair);
+         }
          
-         
-         PrefabUtility.CreatePrefab (outputPath + rootName+".prefab", gameObject);
+         prefabPlaceDatas.ForEach(x =>
+         {
+             Debug.Log("containts{"+x.PrefabTypeKey+"}: " + prefabDictionary.ContainsKey(x.PrefabTypeKey));
+             if (!prefabDictionary.ContainsKey(x.PrefabTypeKey))
+             {
+                 return;
+             }
 
-         Editor.DestroyImmediate (gameObject);
+             var originPrefab = prefabDictionary[x.PrefabTypeKey];
+             Object prefab = PrefabUtility.GetPrefabParent (originPrefab);//Prefabを取得
+             string path   = AssetDatabase.GetAssetPath (prefab);//Prefabのパスを取得
+             Debug.Log(path);
+             
+             var clone= Instantiate(originPrefab, x.Position, Quaternion.identity);
+
+             clone.transform.parent = rootObject.transform;
+         });
+         
+         PrefabUtility.CreatePrefab (outputPath + rootName+".prefab", rootObject);
+
+         Editor.DestroyImmediate (rootObject);
 
      }
      
