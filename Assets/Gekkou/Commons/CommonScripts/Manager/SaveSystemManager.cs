@@ -38,46 +38,15 @@ namespace Gekkou
 
         public void Saving(SaveData data)
         {
-            SaveSystemPlayerPrefs<SaveData>.SavingGameData(data);
-        }
-
-        public void Saving(string playername)
-        {
-            var data = new SaveData(saveData);
-
-            data.playerName = playername;
-
-            Saving(data);
-
-            saveData = new SaveData(data);
-        }
-
-        public void SavingWindowSize(int windowsize)
-        {
-            var data = new SaveData(saveData);
-
-            data.windowSize = windowsize;
-
-            Saving(data);
-
-            saveData = new SaveData(data);
-        }
-
-
-        public void SavingMouseSensitivity(float sensi)
-        {
-            var data = new SaveData(saveData);
-
-            data.mouseDouble = sensi;
-
-            Saving(data);
-
-            saveData = new SaveData(data);
+            SaveSystem<SaveData>.SavingGameData(data);
         }
 
         public void Loading()
         {
-            saveData = SaveSystemPlayerPrefs<SaveData>.LoadingGameData();
+             if(!SaveSystem<SaveData>.LoadingGameData(ref saveData))
+            {
+                saveData = new SaveData(1.0f, 1.0f, 1.0f);
+            }
         }
 
         protected override void Awake()

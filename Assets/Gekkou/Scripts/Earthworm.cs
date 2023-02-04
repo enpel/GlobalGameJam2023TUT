@@ -22,6 +22,9 @@ public class Earthworm : Nutrition
 
     private void Update()
     {
+        if (GameSystemController.Instance.IsGameLevelStop)
+            return;
+
         timer.UpdateTimer();
         transform.position = startPos + _moveDirection * _moveRange * Mathf.Sin(timer.ElaspedTime * _moveSpeed);
     }

@@ -44,6 +44,11 @@ public class PlayerGrowthParameters : SingletonMonobehavior<PlayerGrowthParamete
         Instance = this;
     }
 
+    private void Start()
+    {
+        UploadPlayerStatus();
+    }
+
     public void SetParameter(GrowthType type, int value)
     {
         if (type == GrowthType.Random)
@@ -61,6 +66,19 @@ public class PlayerGrowthParameters : SingletonMonobehavior<PlayerGrowthParamete
         {
             _growthParameters[(int)type] += value;
         }
+
+        if (type == GrowthType.Growth)
+        {
+            UploadPlayerStatus();
+        }
+    }
+
+    /// <summary>
+    /// 栄養によってパワーアップするのを反映させる
+    /// </summary>
+    private void UploadPlayerStatus()
+    {
+        PlayerMovementController.Instance.GrowthRate = _growthParameters[(int)GrowthType.Growth];
     }
 
     public void UploadParameter()

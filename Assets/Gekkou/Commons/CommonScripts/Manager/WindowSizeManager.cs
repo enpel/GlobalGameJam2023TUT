@@ -25,7 +25,7 @@ namespace Gekkou
 
         private void Start()
         {
-            ChangeWindowIndex(SaveSystemManager.Instance.SaveData.windowSize);
+            //ChangeWindowIndex(SaveSystemManager.Instance.SaveData.windowSize);
             _dropdown.value = ScreenSizeIndex;
         }
 
@@ -49,7 +49,7 @@ namespace Gekkou
         public void ChangeWindowIndex(int index)
         {
             ScreenSizeIndex = Mathf.Clamp(index, 0, _screenSizes.Length - 1);
-            SaveSystemManager.Instance.SavingWindowSize(ScreenSizeIndex);
+            //SaveSystemManager.Instance.SavingWindowSize(ScreenSizeIndex);
             ChangeWindowSize();
         }
 

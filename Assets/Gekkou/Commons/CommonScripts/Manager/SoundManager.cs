@@ -104,17 +104,27 @@ namespace Gekkou
 
         private void SetTheVolumeOfBgm()
         {
-            foreach (var bgm in bgmAudios)
+            for (int i = bgmAudios.Count - 1; i >= 0; i--)
             {
-                bgm.volume = masterVolume * bgmVolume;
+                if(bgmAudios[i]==null)
+                {
+                    bgmAudios.RemoveAt(i);
+                    continue;
+                }    
+                bgmAudios[i].volume = masterVolume * bgmVolume;
             }
         }
 
         private void SetTheVolumeOfSe()
         {
-            foreach (var se in seAudios)
+            for (int i = seAudios.Count - 1; i >= 0; i--)
             {
-                se.volume = masterVolume * seVolume;
+                if (seAudios[i] == null)
+                {
+                    seAudios.RemoveAt(i);
+                    continue;
+                }
+                seAudios[i].volume = masterVolume * seVolume;
             }
         }
 
