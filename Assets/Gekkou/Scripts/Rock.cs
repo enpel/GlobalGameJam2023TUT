@@ -4,6 +4,15 @@ using UnityEngine;
 
 public class Rock : Nutrition
 {
+    public AudioClip sound1;
+    public AudioClip sound2;
+    AudioSource audioSource;
+
+    void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
+
     public override bool HitNutritionObject(int penetrationPower)
     {
         // 種類が吸収なので吸収
@@ -12,7 +21,10 @@ public class Rock : Nutrition
 
         // 抵抗値が上回ったので抵抗
         if (_resistPenetrationPower > penetrationPower)
+        {
+            audioSource.PlayOneShot(sound1);
             return false;
+        }
 
         // 下回ったので吸収
         return true;
@@ -21,5 +33,6 @@ public class Rock : Nutrition
     public override void AbsorbedObject()
     {
         Invoke("EnableObj", _disableTime);
+        audioSource.PlayOneShot(sound2);
     }
 }

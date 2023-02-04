@@ -10,6 +10,8 @@ public class PlayerGrowthController : MonoBehaviour
     //[SerializeField] GameObject particlePrefab;
     public AudioClip sound1;
     AudioSource audioSource;
+    //[SerializeField]
+    //private TimeManager timeManager;
 
     private void Start()
     {
@@ -31,6 +33,7 @@ public class PlayerGrowthController : MonoBehaviour
             EffectManager.Instance.PlayEffect(EffectName.Absorption, transform.position);
             nutrition.AbsorbedObject();
             audioSource.PlayOneShot(sound1);
+            //timeManager.SlowDown();
         }
         else
         {
