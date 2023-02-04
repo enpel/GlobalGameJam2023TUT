@@ -15,7 +15,7 @@ public class GrowthResultViewer : MonoBehaviour
 
     private void ResultView()
     {
-        var param = GrowthParameterManager.Instance.GrowthParameters;
+        var param = GrowthParameterManager.Instance.CurrentGrowthParameters;
         
         // 仮作成
         var text = "";

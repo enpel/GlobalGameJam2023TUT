@@ -10,6 +10,7 @@ public class GrowthParameterManager : SingletonMonobehavior<GrowthParameterManag
     public int[] GrowthParameters { get => _growthParameters; }
 
     private int[] _currentGrowthParameters = new int[4];
+    public int[] CurrentGrowthParameters { get => _currentGrowthParameters; }
 
     [SerializeField]
     private AnimationCurve _addRateCurve;
@@ -37,7 +38,7 @@ public class GrowthParameterManager : SingletonMonobehavior<GrowthParameterManag
             var diff = _currentGrowthParameters[i] - _growthParameters[i];
 
             // 増えた量*増加割合　を加算
-            _growthParameters[i] += (int)(diff * addDouble);
+            _growthParameters[i] += Mathf.CeilToInt(diff * addDouble);
         }
     }
 }
