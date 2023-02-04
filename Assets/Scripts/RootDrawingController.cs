@@ -3,38 +3,36 @@ using UnityEngine.Splines;
 
 public class RootDrawintgController : MonoBehaviour
 {
-    [SerializeField] Transform m_playerTransform;
+    [SerializeField] GameObject m_playerObj;
     [SerializeField] SplineContainer m_splineContainer;
     [SerializeField] float m_knotInterval;
-    [SerializeField] Vector3 m_tangentIn;
-    [SerializeField] Vector3 m_tangentOut;
 
     Vector3 m_prevPos;
-    Spline m_spline;
+    Spline m_rootSpline;
 
     void Start()
     {
-        m_spline = m_splineContainer.Spline;
+        m_rootSpline = m_splineContainer.Spline;
 
         // 全削除
-        m_spline.Clear();
+        m_rootSpline.Clear();
 
         // 初回knot
-        m_spline.Add(new BezierKnot(transform.position, m_tangentIn, m_tangentOut));
+        m_rootSpline.Add(new BezierKnot(transform.position));
 
         m_prevPos = transform.position;
     }
 
     void Update()
     {
-        // 過去位置と現在地の差がknotIntervalより大きい時
-        if ((m_playerTransform.position - m_prevPos).magnitude > m_knotInterval)
+            // 過去位置と現在地の差がknotIntervalより大きい時
+        if ((m_playerObj.transform.position - m_prevPos).magnitude > m_knotInterval)
         {
             // Knot追加
-            m_spline.Add(new BezierKnot(m_playerTransform.position, m_tangentIn, m_tangentOut));
+            m_rootSpline.Add(new BezierKnot(m_playerObj.transform.position));
 
             // 過去位置更新
-            m_prevPos = m_playerTransform.position;
+            m_prevPos = m_playerObj.transform.position;
         }
     }
 }
