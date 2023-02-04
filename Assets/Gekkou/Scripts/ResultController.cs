@@ -20,7 +20,7 @@ public class ResultController : MonoBehaviour
     public void OnClickRetry()
     {
         // game scene に移動
-        SceneSystemManager.Instance.SceneLoading(Scene.GekkouScene);
+        SceneSystemManager.Instance.SceneLoading(Scene.PrototypeScene);
     }
 
     public void OnClickTitle()
