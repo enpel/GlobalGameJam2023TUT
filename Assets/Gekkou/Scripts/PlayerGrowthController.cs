@@ -11,7 +11,7 @@ public class PlayerGrowthController : MonoBehaviour
     private void Start()
     {
         if (_growthParameters == null)
-            _growthParameters = GetComponent<PlayerGrowthParameters>();
+            _growthParameters = PlayerGrowthParameters.Instance;
     }
 
     private void HitNutrition(Nutrition nutrition)

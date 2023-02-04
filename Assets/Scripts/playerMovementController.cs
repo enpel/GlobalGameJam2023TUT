@@ -1,9 +1,15 @@
 ﻿using UnityEngine;
 using UnityEngine.InputSystem;
+using Gekkou;
 
-public class PlayerMovementController : MonoBehaviour
+public class PlayerMovementController : SingletonMonobehavior<PlayerMovementController>
 {
     [SerializeField] float m_speed;
+
+    protected override void Awake()
+    {
+        Instance = this;
+    }
 
     // Update is called once per frame
     void Update()

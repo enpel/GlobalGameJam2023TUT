@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Gekkou;
 
-public class PlayerGrowthParameters : MonoBehaviour
+public class PlayerGrowthParameters : SingletonMonobehavior<PlayerGrowthParameters>
 {
     public enum GrowthType
     { 
@@ -33,9 +33,10 @@ public class PlayerGrowthParameters : MonoBehaviour
         return _growthParameters[(int)type];
     }
 
-    private void Awake()
+    protected override void Awake()
     {
         SettingParameter();
+        Instance = this;
     }
 
     public void SetParameter(GrowthType type, int value)
