@@ -11,6 +11,8 @@ public class PlayerGrowthParameters : SingletonMonobehavior<PlayerGrowthParamete
         Growth,
         Beauty,
         Absorption,
+        Random,
+        All,
     }
 
     [SerializeField, ReadOnly, EnumIndex(typeof(GrowthType))]
@@ -30,7 +32,10 @@ public class PlayerGrowthParameters : SingletonMonobehavior<PlayerGrowthParamete
 
     public int GetParameter(GrowthType type)
     {
-        return _growthParameters[(int)type];
+        if ((int)type < 4)
+            return _growthParameters[(int)type];
+        else
+            return -1;
     }
 
     protected override void Awake()
@@ -41,7 +46,21 @@ public class PlayerGrowthParameters : SingletonMonobehavior<PlayerGrowthParamete
 
     public void SetParameter(GrowthType type, int value)
     {
-        _growthParameters[(int)type] += value;
+        if (type == GrowthType.Random)
+        {
+            _growthParameters[Random.Range(0, 4)] += value;
+        }
+        else if(type == GrowthType.All)
+        {
+            for (int i = 0; i < 4; i++)
+            {
+                _growthParameters[i] += value;
+            }
+        }
+        else
+        {
+            _growthParameters[(int)type] += value;
+        }
     }
 
     public void UploadParameter()
