@@ -17,6 +17,6 @@ public class TitleController : MonoBehaviour
     public void OnClickStart()
     {
         // game scene に移動
-        SceneSystemManager.Instance.SceneLoading(Scene.GekkouScene);
+        SceneSystemManager.Instance.SceneLoading(Scene.PrototypeScene);
     }
 }
