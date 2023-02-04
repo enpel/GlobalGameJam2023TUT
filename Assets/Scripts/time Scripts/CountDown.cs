@@ -2,11 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Gekkou;
 
 public class CountDown : MonoBehaviour
 {
-    public GameObject count_object = null;
-    public float countdownSeconds = 100;
+
+    [SerializeField]
+    GameObject count_object = null;
+
+    [SerializeField]
+    float countdownSeconds = 100;
+
+    bool endFlag = false;
+
     void Start()
     {
         
@@ -27,5 +35,11 @@ public class CountDown : MonoBehaviour
         }
         // テキストの中身
         count_text.text = countdownSeconds.ToString("f0");
+
+        if (!endFlag && countdownSeconds <= 0)
+        {
+            SceneSystemManager.Instance.SceneLoading(Scene.ResultScene);
+            endFlag = true;
+        }
     }
 }
