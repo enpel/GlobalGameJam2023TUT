@@ -6,7 +6,6 @@ namespace Gekkou
     /// </summary>
     public enum EffectName
     {
-        Fire,
-        Bomb,
+        Absorption,
     }
 }

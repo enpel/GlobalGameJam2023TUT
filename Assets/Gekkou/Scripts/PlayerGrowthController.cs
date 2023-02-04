@@ -1,12 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Gekkou;
 
 public class PlayerGrowthController : MonoBehaviour
 {
     [SerializeField]
     private PlayerGrowthParameters _growthParameters;
-    [SerializeField] GameObject particlePrefab;
+    //[SerializeField] GameObject particlePrefab;
 
     private void Start()
     {
@@ -20,17 +21,18 @@ public class PlayerGrowthController : MonoBehaviour
         {
             // 栄養を吸収できた
             _growthParameters.SetParameter(nutrition.GrowthType, nutrition.NutritionQuantity);
-            Instantiate(particlePrefab, transform.position, Quaternion.identity);
+            //Instantiate(particlePrefab, transform.position, Quaternion.identity);
+            EffectManager.Instance.PlayEffect(EffectName.Absorption, transform.position);
             nutrition.AbsorbedObject();
-            Gekkou.Log.Info(this, "Get {0} : {1} : Now {2}"
+            Log.Info(this, "Get {0} : {1} : Now {2}"
                 , nutrition.GrowthType.ToString(), nutrition.NutritionQuantity, _growthParameters.GetParameter(nutrition.GrowthType));
         }
         else
         {
             // 栄養に抵抗された
-            Gekkou.Log.Info(this, "Game Over");
+            Log.Info(this, "Game Over");
             _growthParameters.UploadParameter();
-            Gekkou.SceneSystemManager.Instance.SceneLoading(Scene.ResultScene);
+            SceneSystemManager.Instance.SceneLoading(Scene.ResultScene);
         }
     }
 
