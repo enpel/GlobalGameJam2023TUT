@@ -14,11 +14,6 @@ public class CountDown : MonoBehaviour
 
     bool endFlag = false;
 
-    void Start()
-    {
-        
-    }
-    
     void Update()
     {
         // オブジェクトからTextコンポーネントを取得
@@ -37,6 +32,7 @@ public class CountDown : MonoBehaviour
 
         if (!endFlag && countdownSeconds <= 0)
         {
+            PlayerGrowthParameters.Instance.UploadParameter();
             SceneSystemManager.Instance.SceneLoading(Scene.ResultScene);
             endFlag = true;
         }
