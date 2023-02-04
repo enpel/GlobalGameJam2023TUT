@@ -23,6 +23,9 @@ public class GrowthParameterManager : SingletonMonobehavior<GrowthParameterManag
         }
     }
 
+    /// <summary>
+    /// 栄養素の上書き保存
+    /// </summary>
     public void UpdateGrowthParameter()
     {
         // パラメータを美力のRate分掛けて加算する

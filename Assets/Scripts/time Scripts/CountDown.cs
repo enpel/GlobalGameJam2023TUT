@@ -16,6 +16,9 @@ public class CountDown : MonoBehaviour
 
     void Update()
     {
+        if (GameSystemController.Instance.IsGameLevelStop)
+            return;
+
         // オブジェクトからTextコンポーネントを取得
         var count_text = count_object.GetComponent<TMP_Text>();
         // カウントダウン
@@ -33,7 +36,9 @@ public class CountDown : MonoBehaviour
         if (!endFlag && countdownSeconds <= 0)
         {
             PlayerGrowthParameters.Instance.UploadParameter();
-            SceneSystemManager.Instance.SceneLoading(Scene.ResultScene);
+            GameSystemController.Instance.IsGameLevelStop = true;
+            // SceneSystemManager.Instance.SceneLoading(Scene.ResultScene);
+            GameSystemController.Instance.ChangeGameLevel(GameSystemController.GameLevel.Result);
             endFlag = true;
         }
     }

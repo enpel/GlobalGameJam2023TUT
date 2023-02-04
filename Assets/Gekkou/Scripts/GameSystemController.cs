@@ -4,21 +4,29 @@ using UnityEngine;
 using Gekkou;
 using DG.Tweening;
 
-public class GameSystemController : MonoBehaviour
+public class GameSystemController : SingletonMonobehavior<GameSystemController>
 {
+    public bool IsGameLevelStop = false;
+
     [SerializeField]
     private GameObject _titleLevelObj;
     [SerializeField]
     private GameObject _titleCanvas;
+    [SerializeField]
+    private AudioClip _titleBGM;
 
     [SerializeField]
     private GameObject _selectLevelObj;
 
     [SerializeField]
     private GameObject _gameLevelObj;
+    [SerializeField]
+    private AudioClip _gameBGM;
 
     [SerializeField]
     private GameObject _resultLevelObj;
+    [SerializeField]
+    private AudioClip _resultBGM;
 
     [SerializeField]
     private GameObject _handObj;
@@ -45,6 +53,16 @@ public class GameSystemController : MonoBehaviour
     private Tween handTween;
     private Tween handTween2;
 
+    protected override void Awake()
+    {
+        Instance = this;
+    }
+
+    private void Start()
+    {
+        ChangeGameLevel(GameLevel.Title);
+    }
+
     private void Update()
     {
         if (Input.GetKey(KeyCode.T))
@@ -59,15 +77,18 @@ public class GameSystemController : MonoBehaviour
 
     public void ChangeGameLevel(GameLevel nextLevel)
     {
-        _titleLevelObj.SetActive(nextLevel == GameLevel.Title || nextLevel == GameLevel.Select);
-        _titleCanvas.SetActive(nextLevel == GameLevel.Title);
-        _selectLevelObj.SetActive(nextLevel == GameLevel.Select);
-        _gameLevelObj.SetActive(nextLevel == GameLevel.Game);
-        _resultLevelObj.SetActive(nextLevel == GameLevel.Result);
-
         switch (nextLevel)
         {
             case GameLevel.Title:
+                BGMManager.Instance.FadeAudio(_titleBGM);
+                if (_currentLevel == GameLevel.Result)
+                {
+                    _currentLevel = nextLevel;
+                    GrowthParameterManager.Instance.UpdateGrowthParameter();
+                    SceneSystemManager.Instance.SceneReloading();
+                    return;
+                }
+
                 handTween = _handObj.transform.DOMove(_handPoses[(int)HandPos.Wait].position, _handMoveTime);
                 handTween2 = _handObj.transform.DORotateQuaternion(_handPoses[(int)HandPos.Wait].rotation, _handMoveTime);
                 break;
@@ -76,13 +97,26 @@ public class GameSystemController : MonoBehaviour
                 handTween2 = _handObj.transform.DORotateQuaternion(_handPoses[(int)HandPos.Select].rotation, _handMoveTime);
                 break;
             case GameLevel.Game:
+                BGMManager.Instance.FadeAudio(_gameBGM);
+                IsGameLevelStop = false;
                 handTween = _handObj.transform.DOMove(_handPoses[(int)HandPos.Start].position, _handMoveTime);
                 handTween2 = _handObj.transform.DORotateQuaternion(_handPoses[(int)HandPos.Start].rotation, _handMoveTime);
                 break;
             case GameLevel.Result:
+                BGMManager.Instance.FadeAudio(_resultBGM);
+                IsGameLevelStop = true;
                 break;
             default:
                 break;
         }
+
+        _titleLevelObj.SetActive(nextLevel == GameLevel.Title || nextLevel == GameLevel.Select);
+        _titleCanvas.SetActive(nextLevel == GameLevel.Title);
+        _selectLevelObj.SetActive(nextLevel == GameLevel.Select);
+        _gameLevelObj.SetActive(nextLevel == GameLevel.Game);
+        _resultLevelObj.SetActive(nextLevel == GameLevel.Result);
+
+        _currentLevel = nextLevel;
     }
+
 }

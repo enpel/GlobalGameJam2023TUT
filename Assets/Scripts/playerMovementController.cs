@@ -28,6 +28,9 @@ public class PlayerMovementController : SingletonMonobehavior<PlayerMovementCont
     // Update is called once per frame
     void Update()
     {
+        if (GameSystemController.Instance.IsGameLevelStop)
+            return;
+
 #if UNITY_IOS || UNITY_ANDROID
         var screenPos = Touchscreen.current.position.ReadValue();
 #else
