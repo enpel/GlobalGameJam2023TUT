@@ -155,7 +155,6 @@ MonoBehaviour:
   patterns:
   - {fileID: 7566163800655917399, guid: 378453ed9f927dd4c8a767e26f90ed1b, type: 3}
   - {fileID: 3556475065649129192, guid: 1f04227818582754d9a28d50964bd8f3, type: 3}
-  - {fileID: 0}
 --- !u!4 &125789232
 Transform:
   m_ObjectHideFlags: 0
