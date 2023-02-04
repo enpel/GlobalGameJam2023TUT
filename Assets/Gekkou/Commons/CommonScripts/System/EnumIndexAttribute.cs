@@ -5,10 +5,10 @@ using System.Linq;
 using UnityEngine;
 #if UNITY_EDITOR
 using UnityEditor;
+#endif
 
 namespace Gekkou
 {
-#endif
 
     /// <summary>
     /// Showing an array with Enum as keys in the property inspector. (Supported children)
