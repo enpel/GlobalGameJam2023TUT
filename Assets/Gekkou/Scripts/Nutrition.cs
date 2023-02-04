@@ -17,13 +17,13 @@ public class Nutrition : MonoBehaviour
     /// 栄養に当たった時の挙動
     /// </summary>
     [SerializeField]
-    private NutritionType _nutritionType = NutritionType.Absorption;
+    protected NutritionType _nutritionType = NutritionType.Absorption;
 
     /// <summary>
     /// 栄養の種類
     /// </summary>
     [SerializeField]
-    private PlayerGrowthParameters.GrowthType _growthType = 0;
+    protected PlayerGrowthParameters.GrowthType _growthType = 0;
     /// <summary> 栄養の種類 </summary>
     public PlayerGrowthParameters.GrowthType GrowthType { get => _growthType; }
 
@@ -31,7 +31,7 @@ public class Nutrition : MonoBehaviour
     /// 栄養素の量
     /// </summary>
     [SerializeField, Min(1)]
-    private int _nutritionQuantity = 0;
+    protected int _nutritionQuantity = 0;
     /// <summary> 栄養素の量 </summary>
     public int NutritionQuantity { get => _nutritionQuantity; }
 
@@ -39,7 +39,13 @@ public class Nutrition : MonoBehaviour
     /// 抵抗できる貫通力
     /// </summary>
     [SerializeField, Min(0)]
-    private int _resistPenetrationPower = 0;
+    protected int _resistPenetrationPower = 0;
+
+    /// <summary>
+    /// 非表示になるまでの時間
+    /// </summary>
+    [SerializeField, Min(0)]
+    protected float _disableTime = 0.5f;
 
     /// <summary>
     /// 栄養に当たった際に、吸収できるかどうか判定
@@ -64,6 +70,11 @@ public class Nutrition : MonoBehaviour
     /// 吸収された後の処理
     /// </summary>
     public virtual void AbsorbedObject()
+    {
+        Invoke("EnableObj", _disableTime);
+    }
+
+    protected void EnableObj()
     {
         gameObject.SetActive(false);
     }

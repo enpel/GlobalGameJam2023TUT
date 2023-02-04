@@ -6,6 +6,7 @@ public class TestPlayerMove : MonoBehaviour
 {
     [SerializeField]
     private float _moveSpeed = 10.0f;
+    private float[] moves;
 
     private void Update()
     {
