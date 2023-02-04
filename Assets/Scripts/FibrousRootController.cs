@@ -1,6 +1,8 @@
-﻿using UnityEngine;
+﻿using System.Threading.Tasks;
+using UnityEngine;
 using UnityEngine.Splines;
 using UnityEngine.AddressableAssets;
+using Cinemachine;
 
 public class FibrousRootManager : MonoBehaviour
 {
@@ -8,9 +10,11 @@ public class FibrousRootManager : MonoBehaviour
     [SerializeField] AssetReference m_rootRef;
     [SerializeField] SplineContainer m_splineContainer;
     [SerializeField] Transform m_parentTransform;
+    [SerializeField] CinemachineVirtualCamera m_overLookingCam;
     [SerializeField] int m_fibrousRootInterval;
     [SerializeField] float m_rootPosDiff;
-    [SerializeField] float m_dammyGoalYPos;
+    [SerializeField] Vector3 m_vCamDelta;
+    [SerializeField] float m_drawIntervalTime;
 
     Spline m_rootSpline;
 
@@ -22,20 +26,13 @@ public class FibrousRootManager : MonoBehaviour
         m_rootObj = handle.WaitForCompletion();
     }
 
-    void Update()
-    {
-        // ダミー
-        if (m_player.transform.position.y < m_dammyGoalYPos)
-        {
-            DrawFabirousRoots();
-        }
-    }
-
     public void DrawFabirousRoots()
     {
-        Debug.Log("a");
-        m_rootSpline = m_splineContainer.Spline;
+        Time.timeScale = 0.0f;
+        m_overLookingCam.transform.position -= m_vCamDelta;
+        m_overLookingCam.Priority = 15;
 
+        m_rootSpline = m_splineContainer.Spline;
         int count = 1;
         foreach (var i in m_rootSpline)
         {
