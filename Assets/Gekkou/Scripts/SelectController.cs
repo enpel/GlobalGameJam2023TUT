@@ -11,12 +11,63 @@ public class SelectController : MonoBehaviour
     private TextMeshProUGUI[] _viewLabels = new TextMeshProUGUI[4];
 
     [SerializeField]
+    private Button _leftSelectButton;
+    [SerializeField]
+    private Button _rightSelectButton;
+    [SerializeField]
     private Button _startButton;
+    [SerializeField]
+    private GameObject _saveSeedLabel;
+
+    [SerializeField]
+    private TextMeshProUGUI _nameLabel;
+    [SerializeField]
+    private SpeciesDataBase _speciesDataBase;
+
+    [SerializeField]
+    private SeedViewer _seedViewer;
+    private bool isNoSave = false;
+
+    private enum SelectSeedType
+    {
+        None,
+        Penetration,
+        Growth,
+        Beauty,
+        Absorption,
+        Save,
+    }
+
+    [System.Serializable]
+    private class SeedParam
+    {
+        [EnumIndex(typeof(PlayerGrowthParameters.GrowthType))]
+        public int[] Parameter = new int[4];
+    }
+
+
+    [SerializeField, EnumIndex(typeof(SelectSeedType))]
+    private SeedParam[] _selectSeeds = new SeedParam[4];
+    [SerializeField]
+    private SelectSeedType _currentSelectType = SelectSeedType.Save;
 
     private void Start()
     {
-        SetViewLabels(GrowthParameterManager.Instance.GrowthParameters);
-        _startButton.onClick.AddListener(OnStartButton);
+        _leftSelectButton.onClick.AddListener(LeftButton);
+        _rightSelectButton.onClick.AddListener(RightButton);
+        _startButton.onClick.AddListener(SelectCorrect);
+
+        var param = GrowthParameterManager.Instance.GrowthParameters;
+        for (int i = 0; i < param.Length; i++)
+        {
+            if (param[i] > 0)
+            {
+                ChangeSelect(SelectSeedType.Save);
+                return;
+            }
+        }
+        isNoSave = true;
+        ChangeSelect(SelectSeedType.None);
     }
 
     public void SetViewLabels(int[] values)
@@ -25,10 +76,71 @@ public class SelectController : MonoBehaviour
         {
             _viewLabels[i].SetText(values[i] + "/1000000");
         }
+
+        _nameLabel.SetText(_speciesDataBase.GetSpeciesData(values).SpeciesName_jp);
     }
 
-    public void OnStartButton()
+    public void LeftButton()
     {
+        ChangeSelect(-1);
+    }
 
+    public void RightButton()
+    {
+        ChangeSelect(1);
+    }
+
+    private void ChangeSelect(int add)
+    {
+        var select = (int)_currentSelectType + add;
+        if (isNoSave)
+        {
+            if (select < 0)
+                _currentSelectType = SelectSeedType.Absorption;
+            else if (select > (int)SelectSeedType.Absorption)
+                _currentSelectType = 0;
+            else
+                _currentSelectType = (SelectSeedType)select;
+        }
+        else
+        {
+            if (select < 0)
+                _currentSelectType = SelectSeedType.Save;
+            else if (select > (int)SelectSeedType.Save)
+                _currentSelectType = 0;
+            else
+                _currentSelectType = (SelectSeedType)select;
+        }
+
+        ChangeViewer();
+    }
+
+    private void ChangeSelect(SelectSeedType type)
+    {
+        _currentSelectType = type;
+        ChangeViewer();
+    }
+
+    private void ChangeViewer()
+    {
+        _saveSeedLabel.SetActive(_currentSelectType == SelectSeedType.Save);
+        if (_currentSelectType == SelectSeedType.Save)
+        {
+            _seedViewer.ChangeView(GrowthParameterManager.Instance.GrowthParameters);
+            SetViewLabels(GrowthParameterManager.Instance.GrowthParameters);
+        }
+        else
+        {
+            _seedViewer.ChangeView(_selectSeeds[(int)_currentSelectType].Parameter);
+            SetViewLabels(_selectSeeds[(int)_currentSelectType].Parameter);
+        }
+    }
+
+    public void SelectCorrect()
+    {
+        if (_currentSelectType == SelectSeedType.Save)
+            PlayerGrowthParameters.Instance.SettingParameter(GrowthParameterManager.Instance.GrowthParameters);
+        else
+            PlayerGrowthParameters.Instance.SettingParameter(_selectSeeds[(int)_currentSelectType].Parameter);
     }
 }
