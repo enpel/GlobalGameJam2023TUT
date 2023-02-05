@@ -83,6 +83,10 @@ MonoBehaviour:
     m_Key: GameClear
     m_Metadata:
       m_Items: []
+  - m_Id: 199654821904384
+    m_Key: ChangeLanguage
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

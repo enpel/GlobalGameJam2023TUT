@@ -86,6 +86,10 @@ MonoBehaviour:
     m_Localized: GameClear
     m_Metadata:
       m_Items: []
+  - m_Id: 199654821904384
+    m_Localized: "\u65E5\u672C\u8A9E"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
