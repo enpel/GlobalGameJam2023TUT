@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
+using Gekkou;
 using UnityEngine;
 using UnityEngine.Localization;
 using UnityEngine.Localization.Settings;
@@ -11,6 +12,7 @@ public class ChangeLocaleButton : MonoBehaviour
 
     public void OnChangeLocale()
     {
+        UISoundManager.Instance.PlaySuccess();
         Debug.Log(LocalizationSettings.SelectedLocale.Identifier.Code);
         if (LocalizationSettings.SelectedLocale.Identifier.Code == "en")
         {
