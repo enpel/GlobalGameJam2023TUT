@@ -31,6 +31,22 @@ MonoBehaviour:
     m_Key: Absorption
     m_Metadata:
       m_Items: []
+  - m_Id: 152789950709760
+    m_Key: Play
+    m_Metadata:
+      m_Items: []
+  - m_Id: 153131706793984
+    m_Key: Setting
+    m_Metadata:
+      m_Items: []
+  - m_Id: 153133409681408
+    m_Key: Exit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 153134638612480
+    m_Key: Retry
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
