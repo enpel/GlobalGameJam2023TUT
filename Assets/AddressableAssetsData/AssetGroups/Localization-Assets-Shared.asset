@@ -17,16 +17,6 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: fa60a2f11858bca42b632fb32439291e
   m_SerializeEntries:
-  - m_GUID: 0bfb4d98e95c78b45b50b01bb7687be1
-    m_Address: Assets/Localization/TitleText Shared Data.asset
-    m_ReadOnly: 1
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 96a754b1c7f133f408b0d58796327aa7
-    m_Address: Assets/Localization/Result Shared Data.asset
-    m_ReadOnly: 1
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 32661c39bff367a4894e9e78aa514092
     m_Address: Assets/Localization/GameTerms Shared Data.asset
     m_ReadOnly: 1
