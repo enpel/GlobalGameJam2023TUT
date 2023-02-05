@@ -7,7 +7,7 @@ using Cinemachine;
 public class FibrousRootManager : MonoBehaviour
 {
     [SerializeField] GameObject m_player;
-    [SerializeField] AssetReference m_rootRef;
+    [SerializeField] GameObject m_rootPrefab;
     [SerializeField] SplineContainer m_splineContainer;
     [SerializeField] Transform m_parentTransform;
     [SerializeField] CinemachineVirtualCamera m_overLookingCam;
@@ -18,17 +18,10 @@ public class FibrousRootManager : MonoBehaviour
     [SerializeField] float m_cutTime;
 
     Spline m_rootSpline;
-    GameObject m_rootObj;
     List<GameObject> m_rightFibrousRoots = new();
     List<GameObject> m_leftFibrousRoots = new();
     int m_idxOffset = 0;
     float m_timeCount = 0;
-
-    void Start()
-    {
-        var handle = Addressables.LoadAssetAsync<GameObject>(m_rootRef);
-        m_rootObj = handle.WaitForCompletion();
-    }
 
     void Update()
     {
@@ -71,18 +64,20 @@ public class FibrousRootManager : MonoBehaviour
             {
                 for (var j = 1; j <= m_player.GetComponent<PlayerGrowthParameters>().AbsorptionPower; ++j)
                 {
+                    if (i.Position.y - m_rootPosDiff * j < m_player.transform.position.z)
+                    {
+                        break;
+                    }
                     m_rightFibrousRoots.Add(Instantiate(
-                        m_rootObj, 
+                        m_rootPrefab, 
                         new Vector3(i.Position.x, i.Position.y, m_player.transform.position.z) + m_rootPosDiff * j * new Vector3(1.0f, -1.0f, 0.0f), 
                         Quaternion.Euler(0.0f, 0.0f, -45.0f), 
                         m_parentTransform));
-                    //m_rightFibrousRoots[j - 1].SetActive(false);
                     m_leftFibrousRoots.Add(Instantiate(
-                        m_rootObj, 
+                        m_rootPrefab, 
                         new Vector3(i.Position.x, i.Position.y, m_player.transform.position.z) - m_rootPosDiff * j * new Vector3(1.0f, 1.0f, 0.0f), 
                         Quaternion.Euler(0.0f, 0.0f, 45.0f), 
                         m_parentTransform));
-                    //m_leftFibrousRoots[j - 1].SetActive(false);
                 }
             }
             ++count;
