@@ -6,7 +6,6 @@ public class PlayerMovementController : SingletonMonobehavior<PlayerMovementCont
 {
     [SerializeField] float m_speed;
 
-
     [SerializeField]
     private float _growthSpeed = 1.0f;
     public float GrowthRate // 成長速度の数値をもとに加算量を計算・保存

@@ -19,7 +19,7 @@ public class GameController : MonoBehaviour
     {
         yield return new WaitForSeconds(_startWaitTime);
 
-        _playerObj.SetActive(true);
+        GameSystemController.Instance.IsGameLevelStop = false;
 
         // ここで栄養の自動生成とかを行う
     }
