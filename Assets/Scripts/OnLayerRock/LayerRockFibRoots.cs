@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class DrawFibrousRoots : LayerRock
+public class LayerRockFibRoots : LayerRock
 {
     [SerializeField] FibrousRootsManager m_fib;
 
@@ -8,6 +8,6 @@ public class DrawFibrousRoots : LayerRock
     public override void AbsorbedObject()
     {
         m_fib.InstantiateFabirousRoots();
-        Invoke("EnableObj", _disableTime); 
+        Invoke("EnableObj", _disableTime);
     }
 }

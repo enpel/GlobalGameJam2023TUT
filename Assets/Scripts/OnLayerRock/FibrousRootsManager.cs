@@ -20,7 +20,7 @@ public class FibrousRootsManager : MonoBehaviour
     float m_timeCount = 0;
 
     // Start is called before the first frame update
-    void Awake()
+    void Start()
     {
         m_cinemachineBrain.m_CameraActivatedEvent.AddListener(OnChangeCamera);
     }
@@ -28,7 +28,6 @@ public class FibrousRootsManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
     }
 
     public void InstantiateFabirousRoots()
@@ -50,13 +49,13 @@ public class FibrousRootsManager : MonoBehaviour
                     {
                         break;
                     }
-                    Task.Run(() =>
-                    {
-                        while (m_timeCount < m_drawInterval)
-                        {
-                            continue;
-                        }
-                    });
+                    //Task.Run(() =>
+                    //{
+                    //    while (m_timeCount < m_drawInterval)
+                    //    {
+                    //        continue;
+                    //    }
+                    //});
                     Instantiate(
                         m_rootPrefab,
                         new Vector3(i.Position.x, i.Position.y, m_player.transform.position.z) + m_rootPosDiff * j * new Vector3(1.0f, -1.0f, 0.0f),
@@ -73,18 +72,34 @@ public class FibrousRootsManager : MonoBehaviour
         }
     }
 
-    void OnChangeCamera(ICinemachineCamera incomingVcam, ICinemachineCamera outgoingVcam)
+    async void OnChangeCamera(ICinemachineCamera incomingVcam, ICinemachineCamera outgoingVcam)
     {
-        if (incomingVcam.Name != m_overLookingCam.Name)
+        if (incomingVcam == null || outgoingVcam == null)
         {
-            Task.Run(() =>
+            return;
+        }
+
+        if (incomingVcam.Name == m_overLookingCam.Name)
+        {
+            await Task.Run(() =>
             {
-                while (m_cinemachineBrain.ActiveBlend.BlendWeight < 1.0f)
+                while (m_cinemachineBrain.ActiveBlend.BlendWeight < 0.99f)
+                {
+                    continue;
+                }
+                m_overLookingCam.Priority = 0;
+            });
+        }
+        else if(outgoingVcam.Name == m_overLookingCam.Name)
+        {
+            await Task.Run(() =>
+            {
+                while (m_cinemachineBrain.ActiveBlend.BlendWeight < 0.99f)
                 {
                     continue;
                 }
             });
-            m_overLookingCam.Priority = 15;
+
             Time.timeScale = 1.0f;
         }
     }
