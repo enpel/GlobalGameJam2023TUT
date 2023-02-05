@@ -1,8 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Gekkou;
+using System.ComponentModel;
 
-public class TimeManager : MonoBehaviour
+public class TimeManager : SingletorMonobehaviour<TimeManager>
 {   
     //　Time.timeScaleに設定する値
     [SerializeField]
@@ -14,6 +16,10 @@ public class TimeManager : MonoBehaviour
     private float elapsedTime = 0f;
     //　時間を遅くしているかどうか
     private bool isSlowDown = false;
+    protected override void Awake()
+    {
+        Instance = this;
+    }
 
     void Update()
     {
