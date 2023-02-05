@@ -11,12 +11,51 @@ public class SelectController : MonoBehaviour
     private TextMeshProUGUI[] _viewLabels = new TextMeshProUGUI[4];
 
     [SerializeField]
-    private Button _startButton;
+    private Button _leftSelectButton;
+    [SerializeField]
+    private Button _rightSelectButton;
+
+    [SerializeField]
+    private SeedViewer _seedViewer;
+
+    private enum SelectSeedType
+    {
+        None,
+        Penetration,
+        Growth,
+        Beauty,
+        Absorption,
+        Save,
+    }
+
+    [System.Serializable]
+    private class SeedParam
+    {
+        [EnumIndex(typeof(PlayerGrowthParameters.GrowthType))]
+        public int[] Parameter = new int[4];
+    }
+
+
+    [SerializeField, EnumIndex(typeof(SelectSeedType))]
+    private SeedParam[] _selectSeeds = new SeedParam[4];
+    [SerializeField]
+    private SelectSeedType _currentSelectType = SelectSeedType.Save;
 
     private void Start()
     {
-        SetViewLabels(GrowthParameterManager.Instance.GrowthParameters);
-        _startButton.onClick.AddListener(OnStartButton);
+        _leftSelectButton.onClick.AddListener(LeftButton);
+        _rightSelectButton.onClick.AddListener(RightButton);
+
+        var param = GrowthParameterManager.Instance.GrowthParameters;
+        for (int i = 0; i < param.Length; i++)
+        {
+            if (param[i] > 0)
+            {
+                ChangeSelect(SelectSeedType.Save);
+                return;
+            }
+        }
+        ChangeSelect(SelectSeedType.None);
     }
 
     public void SetViewLabels(int[] values)
@@ -27,8 +66,44 @@ public class SelectController : MonoBehaviour
         }
     }
 
-    public void OnStartButton()
+    public void LeftButton()
     {
+        ChangeSelect(-1);
+    }
 
+    public void RightButton()
+    {
+        ChangeSelect(1);
+    }
+
+    private void ChangeSelect(int add)
+    {
+        var select = (int)_currentSelectType + add;
+        if (select < 0)
+            _currentSelectType = SelectSeedType.Save;
+        else if (select > (int)SelectSeedType.Save)
+            _currentSelectType = 0;
+
+        ChangeViewer();
+    }
+
+    private void ChangeSelect(SelectSeedType type)
+    {
+        _currentSelectType = type;
+        ChangeViewer();
+    }
+
+    private void ChangeViewer()
+    {
+        if (_currentSelectType == SelectSeedType.Save)
+        {
+            _seedViewer.ChangeView(GrowthParameterManager.Instance.GrowthParameters);
+            SetViewLabels(GrowthParameterManager.Instance.GrowthParameters);
+        }
+        else
+        {
+            _seedViewer.ChangeView(_selectSeeds[(int)_currentSelectType].Parameter);
+            SetViewLabels(_selectSeeds[(int)_currentSelectType].Parameter);
+        }
     }
 }
