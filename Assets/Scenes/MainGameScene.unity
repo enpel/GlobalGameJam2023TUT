@@ -5336,6 +5336,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6547506881933856553, guid: 855c4ab9e86fd1a43bacf48c12e351cb, type: 3}
+      propertyPath: _maxX
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 6547506881933856553, guid: 855c4ab9e86fd1a43bacf48c12e351cb, type: 3}
+      propertyPath: _minX
+      value: -50
+      objectReference: {fileID: 0}
+    - target: {fileID: 6547506881933856553, guid: 855c4ab9e86fd1a43bacf48c12e351cb, type: 3}
       propertyPath: _growthSpeedCurve.m_Curve.Array.size
       value: 6
       objectReference: {fileID: 0}
