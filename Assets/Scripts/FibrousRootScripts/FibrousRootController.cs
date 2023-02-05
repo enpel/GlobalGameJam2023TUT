@@ -64,7 +64,7 @@ public class FibrousRootManager : MonoBehaviour
             {
                 for (var j = 1; j <= m_player.GetComponent<PlayerGrowthParameters>().AbsorptionPower; ++j)
                 {
-                    if (i.Position.y - m_rootPosDiff * j < m_player.transform.position.z)
+                    if (i.Position.y - m_rootPosDiff * j < m_player.transform.position.y)
                     {
                         break;
                     }

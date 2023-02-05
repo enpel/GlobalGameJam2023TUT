@@ -18,9 +18,9 @@ public class RootDrawintgController : MonoBehaviour
         m_rootSpline.Clear();
 
         // 初回knot
-        m_rootSpline.Add(new BezierKnot(transform.position));
+        m_rootSpline.Add(new BezierKnot(m_playerObj.transform.position));
 
-        m_prevPos = transform.position;
+        m_prevPos = m_playerObj.transform.position;
     }
 
     void Update()
