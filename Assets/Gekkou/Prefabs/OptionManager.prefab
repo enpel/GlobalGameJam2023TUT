@@ -1061,6 +1061,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 267519540835241681}
+        m_TargetAssemblyTypeName: Gekkou.SoundVolumeController, Assembly-CSharp
+        m_MethodName: SaveSoundVolume
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1848602343487293381}
         m_TargetAssemblyTypeName: OptionManager, Assembly-CSharp
         m_MethodName: DisableOption
@@ -1104,7 +1116,7 @@ Transform:
   m_Children:
   - {fileID: 8004417161381034849}
   m_Father: {fileID: 0}
-  m_RootOrder: 27
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1848602343487293381
 MonoBehaviour:
@@ -1768,6 +1780,17 @@ PrefabInstance:
       addedObject: {fileID: 2446468364483801019}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7b513456759bd8b439919b3ef25cc48a, type: 3}
+--- !u!114 &267519540835241681 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8442964121534117490, guid: 7b513456759bd8b439919b3ef25cc48a, type: 3}
+  m_PrefabInstance: {fileID: 8546992856720308387}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d73803766167e9499440825d8d43733, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &1058083074283741472 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8661007346196306307, guid: 7b513456759bd8b439919b3ef25cc48a, type: 3}
