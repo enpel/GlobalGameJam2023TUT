@@ -4,7 +4,7 @@ using UnityEngine;
 using Gekkou;
 using System.ComponentModel;
 
-public class TimeManager : SingletorMonobehaviour<TimeManager>
+public class TimeManager : SingletonMonobehavior<TimeManager>
 {   
     //　Time.timeScaleに設定する値
     [SerializeField]

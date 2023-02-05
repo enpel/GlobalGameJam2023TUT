@@ -26,12 +26,18 @@ public class Mole : Nutrition
     private bool isSearch = false;
     private bool isDeath = false;
 
+    [SerializeField]
+    private TimeManager timeManager;
+
     private void Start()
     {
         playerTrans = PlayerMovementController.Instance.transform;
         SetRotateTween();
         _searchRange *= _searchRange;
+
+        timeManager = TimeManager.Instance;
     }
+
 
     private void Update()
     {
@@ -86,6 +92,7 @@ public class Mole : Nutrition
         if (_resistPenetrationPower > penetrationPower)
         {
             _animator.SetTrigger("Attack");
+            timeManager.SlowDown();
             return false;
         }
 
@@ -99,5 +106,6 @@ public class Mole : Nutrition
         isDeath = true;
 
         Invoke("EnableObj", _disableTime);
+        timeManager.SlowDown();
     }
 }
