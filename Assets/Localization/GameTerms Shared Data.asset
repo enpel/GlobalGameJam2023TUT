@@ -47,6 +47,30 @@ MonoBehaviour:
     m_Key: Retry
     m_Metadata:
       m_Items: []
+  - m_Id: 171493287575552
+    m_Key: Title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 171682253553664
+    m_Key: Result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 172385009188864
+    m_Key: PenetrationValue
+    m_Metadata:
+      m_Items: []
+  - m_Id: 172415313035264
+    m_Key: GrowthSpeedValue
+    m_Metadata:
+      m_Items: []
+  - m_Id: 172416831373312
+    m_Key: BeautyValue
+    m_Metadata:
+      m_Items: []
+  - m_Id: 172417812840448
+    m_Key: AbsorptionValue
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

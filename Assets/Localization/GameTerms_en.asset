@@ -50,6 +50,30 @@ MonoBehaviour:
     m_Localized: Setting
     m_Metadata:
       m_Items: []
+  - m_Id: 171493287575552
+    m_Localized: Title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 171682253553664
+    m_Localized: Result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 172385009188864
+    m_Localized: 'Penetration:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 172415313035264
+    m_Localized: 'GrowthSpeed:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 172416831373312
+    m_Localized: 'Beauty:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 172417812840448
+    m_Localized: 'Absorption:'
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
