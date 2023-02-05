@@ -16,13 +16,13 @@ public class GrowthResultViewer : MonoBehaviour
     private void ResultView()
     {
         var param = GrowthParameterManager.Instance.CurrentGrowthParameters;
-        
+
         // 仮作成
         var text = "";
-        text += "貫通力 : " + param[(int)PlayerGrowthParameters.GrowthType.Penetration] + "\n";
-        text += "成長速度 : " + param[(int)PlayerGrowthParameters.GrowthType.Growth] + "\n";
-        text += "美力 : " + param[(int)PlayerGrowthParameters.GrowthType.Beauty] + "\n";
-        text += "吸収力 : " + param[(int)PlayerGrowthParameters.GrowthType.Absorption] + "\n";
+        text += TermLoader.Instance.GetTerm(TermType.Penetration)+":" +param[(int)PlayerGrowthParameters.GrowthType.Penetration] + "\n";
+        text += TermLoader.Instance.GetTerm(TermType.Speed) + ":" +param[(int)PlayerGrowthParameters.GrowthType.Growth] + "\n";
+        text += TermLoader.Instance.GetTerm(TermType.Beauty) + ":" +param[(int)PlayerGrowthParameters.GrowthType.Beauty] + "\n";
+        text += TermLoader.Instance.GetTerm(TermType.Absorption) + ":" +param[(int)PlayerGrowthParameters.GrowthType.Absorption] + "\n";
 
         _resultLabel.SetText(text);
     }
