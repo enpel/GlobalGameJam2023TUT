@@ -445,7 +445,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d73803766167e9499440825d8d43733, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioType: 2
+  audioType: 1
   audioSlider: {fileID: 550639281673120203}
 --- !u!1001 &6026184766836410951
 PrefabInstance:
