@@ -30,7 +30,7 @@ public class SpeciesDataBase : ScriptableObject
             var isSuccess = true;
             for (int j = 0; j < SpeciesDatas[i].ConditionsSpeciesParameters.Length; j++)
             {
-                if(param[i] < SpeciesDatas[i].ConditionsSpeciesParameters[i]) // 基準を下回ったら次の判定に移る
+                if (param[i] < SpeciesDatas[i].ConditionsSpeciesParameters[j]) // 基準を下回ったら次の判定に移る
                 {
                     isSuccess = false;
                     break;

@@ -17,6 +17,7 @@ public class SelectController : MonoBehaviour
 
     [SerializeField]
     private SeedViewer _seedViewer;
+    private bool isNoSave = false;
 
     private enum SelectSeedType
     {
@@ -55,6 +56,7 @@ public class SelectController : MonoBehaviour
                 return;
             }
         }
+        isNoSave = true;
         ChangeSelect(SelectSeedType.None);
     }
 
@@ -79,10 +81,24 @@ public class SelectController : MonoBehaviour
     private void ChangeSelect(int add)
     {
         var select = (int)_currentSelectType + add;
-        if (select < 0)
-            _currentSelectType = SelectSeedType.Save;
-        else if (select > (int)SelectSeedType.Save)
-            _currentSelectType = 0;
+        if (isNoSave)
+        {
+            if (select < 0)
+                _currentSelectType = SelectSeedType.Absorption;
+            else if (select > (int)SelectSeedType.Absorption)
+                _currentSelectType = 0;
+            else
+                _currentSelectType = (SelectSeedType)select;
+        }
+        else
+        {
+            if (select < 0)
+                _currentSelectType = SelectSeedType.Save;
+            else if (select > (int)SelectSeedType.Save)
+                _currentSelectType = 0;
+            else
+                _currentSelectType = (SelectSeedType)select;
+        }
 
         ChangeViewer();
     }
@@ -95,6 +111,7 @@ public class SelectController : MonoBehaviour
 
     private void ChangeViewer()
     {
+        Log.Info($"Seed:{_currentSelectType.ToString()}");
         if (_currentSelectType == SelectSeedType.Save)
         {
             _seedViewer.ChangeView(GrowthParameterManager.Instance.GrowthParameters);
