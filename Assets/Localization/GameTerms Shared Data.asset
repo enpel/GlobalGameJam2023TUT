@@ -87,6 +87,10 @@ MonoBehaviour:
     m_Key: ChangeLanguage
     m_Metadata:
       m_Items: []
+  - m_Id: 213803694927872
+    m_Key: Settings
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
