@@ -75,7 +75,7 @@ public class PlayerGrowthParameters : SingletonMonobehavior<PlayerGrowthParamete
     /// <summary>
     /// 栄養によってパワーアップするのを反映させる
     /// </summary>
-    private void UploadPlayerStatus()
+    public void UploadPlayerStatus()
     {
         PlayerMovementController.Instance.GrowthRate = _growthParameters[(int)GrowthType.Growth];
     }
