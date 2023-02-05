@@ -6,6 +6,8 @@ using DG.Tweening;
 
 public class GameSystemController : SingletonMonobehavior<GameSystemController>
 {
+    public static readonly int MAX_STATUS_VALUE = 1000000; // 100,0000
+
     public bool IsGameLevelStop = true;
 
     [SerializeField]
@@ -84,7 +86,6 @@ public class GameSystemController : SingletonMonobehavior<GameSystemController>
                 if (_currentLevel == GameLevel.Result)
                 {
                     _currentLevel = nextLevel;
-                    GrowthParameterManager.Instance.UpdateGrowthParameter();
                     SceneSystemManager.Instance.SceneReloading();
                     return;
                 }
@@ -106,7 +107,7 @@ public class GameSystemController : SingletonMonobehavior<GameSystemController>
                 handTween = _handObj.transform.DOMove(_handPoses[(int)HandPos.Wait].position, _handMoveTime);
                 handTween2 = _handObj.transform.DORotateQuaternion(_handPoses[(int)HandPos.Wait].rotation, _handMoveTime);
                 IsGameLevelStop = true;
-                _resultSeed.ChangeView(GrowthParameterManager.Instance.CurrentGrowthParameters);
+                PlayerGrowthParameters.Instance.UploadParameter();
                 break;
             default:
                 break;

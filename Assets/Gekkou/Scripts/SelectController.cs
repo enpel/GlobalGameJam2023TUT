@@ -9,6 +9,11 @@ public class SelectController : MonoBehaviour
 {
     [SerializeField, EnumIndex(typeof(PlayerGrowthParameters.GrowthType))]
     private TextMeshProUGUI[] _viewLabels = new TextMeshProUGUI[4];
+    [SerializeField, EnumIndex(typeof(PlayerGrowthParameters.GrowthType))]
+    private Image[] _gageImage = new Image[4];
+
+    [SerializeField]
+    private float _gameMaxRate = 1000;
 
     [SerializeField]
     private Button _leftSelectButton;
@@ -57,7 +62,7 @@ public class SelectController : MonoBehaviour
         _rightSelectButton.onClick.AddListener(RightButton);
         _startButton.onClick.AddListener(SelectCorrect);
 
-        var param = GrowthParameterManager.Instance.GrowthParameters;
+        var param = SaveSystemManager.Instance.SaveData.seedParameters;
         for (int i = 0; i < param.Length; i++)
         {
             if (param[i] > 0)
@@ -74,10 +79,15 @@ public class SelectController : MonoBehaviour
     {
         for (int i = 0; i < _viewLabels.Length; i++)
         {
-            _viewLabels[i].SetText(values[i] + "/1000000");
+            _viewLabels[i].SetText(values[i].ToString());
         }
 
         _nameLabel.SetText(_speciesDataBase.GetSpeciesData(values).SpeciesName_jp);
+
+        for (int i = 0; i < _gageImage.Length; i++)
+        {
+            _gageImage[i].fillAmount = Mathf.Clamp01(values[i] / _gameMaxRate);
+        }
     }
 
     public void LeftButton()
@@ -126,8 +136,8 @@ public class SelectController : MonoBehaviour
         _saveSeedLabel.SetActive(_currentSelectType == SelectSeedType.Save);
         if (_currentSelectType == SelectSeedType.Save)
         {
-            _seedViewer.ChangeView(GrowthParameterManager.Instance.GrowthParameters);
-            SetViewLabels(GrowthParameterManager.Instance.GrowthParameters);
+            _seedViewer.ChangeView(SaveSystemManager.Instance.SaveData.seedParameters);
+            SetViewLabels(SaveSystemManager.Instance.SaveData.seedParameters);
         }
         else
         {
@@ -139,7 +149,7 @@ public class SelectController : MonoBehaviour
     public void SelectCorrect()
     {
         if (_currentSelectType == SelectSeedType.Save)
-            PlayerGrowthParameters.Instance.SettingParameter(GrowthParameterManager.Instance.GrowthParameters);
+            PlayerGrowthParameters.Instance.SettingParameter(SaveSystemManager.Instance.SaveData.seedParameters);
         else
             PlayerGrowthParameters.Instance.SettingParameter(_selectSeeds[(int)_currentSelectType].Parameter);
     }
