@@ -40,5 +40,7 @@ public class GrowthParameterManager : SingletonMonobehavior<GrowthParameterManag
             // 増えた量*増加割合　を加算
             _growthParameters[i] += Mathf.CeilToInt(diff * addDouble);
         }
+
+        SaveSystemManager.Instance.Saving(_growthParameters);
     }
 }

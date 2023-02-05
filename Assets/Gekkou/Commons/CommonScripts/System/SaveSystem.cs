@@ -15,7 +15,7 @@ namespace Gekkou
         private static readonly int ENCRYPTPASSWORDCOUNT = 16;
         private static readonly string PASSWORDCHARS = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
         private static readonly int PASSWORDCHARSLENGTH = PASSWORDCHARS.Length;
-        private static readonly string SAVEPATH = "/Resources/SaveData";
+        private static readonly string SAVEPATH = "/Resources/SaveData.json";
 
         private static readonly bool OnPassword = false; // 暗号化をするかどうか
 
@@ -112,26 +112,36 @@ namespace Gekkou
 
         private static string GetSavePath()
         {
+            var path = "";
             switch (Application.platform)
             {
                 case RuntimePlatform.WindowsPlayer:
                 case RuntimePlatform.WindowsEditor:
-                    return Application.dataPath + SAVEPATH;
+                    path = Application.dataPath + SAVEPATH;
+                    break;
                 case RuntimePlatform.Android:
-                    return Application.persistentDataPath + SAVEPATH;
+                    path = Application.persistentDataPath + SAVEPATH;
+                    break;
                 default:
-                    return Application.dataPath + SAVEPATH;
+                    path = Application.dataPath + SAVEPATH;
+                    break;
             }
+
+            if (!OnPassword)
+            {
+                path += ".json";
+            }
+            return path;
         }
 
-        public static void SavingGameData(T argData)
+            public static void SavingGameData(T argData)
         {
             string json = JsonUtility.ToJson(argData);
             string savepath = GetSavePath();
 
             if (!OnPassword)
             {
-                savepath += ".json";
+                //savepath += ".json";
                 var writer = new StreamWriter(savepath, false);
                 writer.Write(json);
                 writer.Flush();
@@ -167,7 +177,7 @@ namespace Gekkou
 
             if (!OnPassword)
             {
-                savepath += ".json";
+                //savepath += ".json";
                 if (File.Exists(savepath))
                 {
                     var reader = new StreamReader(savepath);
