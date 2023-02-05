@@ -94,6 +94,10 @@ MonoBehaviour:
     m_Localized: "\u8A2D\u5B9A"
     m_Metadata:
       m_Items: []
+  - m_Id: 226546157404160
+    m_Localized: CREDIT
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
