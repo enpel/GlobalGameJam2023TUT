@@ -90,6 +90,10 @@ MonoBehaviour:
     m_Localized: "\u65E5\u672C\u8A9E"
     m_Metadata:
       m_Items: []
+  - m_Id: 213803694927872
+    m_Localized: Settings
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
