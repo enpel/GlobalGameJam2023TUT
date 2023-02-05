@@ -35,7 +35,6 @@ public class CountDown : MonoBehaviour
 
         if (!endFlag && countdownSeconds <= 0)
         {
-            PlayerGrowthParameters.Instance.UploadParameter();
             GameSystemController.Instance.IsGameLevelStop = true;
             // SceneSystemManager.Instance.SceneLoading(Scene.ResultScene);
             GameSystemController.Instance.ChangeGameLevel(GameSystemController.GameLevel.Result);
