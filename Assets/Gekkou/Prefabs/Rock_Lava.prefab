@@ -56,6 +56,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1138957046555957100, guid: 2cf8e8539a9d02948b1741c792976ebc, type: 3}
+      propertyPath: _nutritionQuantity
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 1138957046555957100, guid: 2cf8e8539a9d02948b1741c792976ebc, type: 3}
+      propertyPath: _resistPenetrationPower
+      value: 2000
+      objectReference: {fileID: 0}
     - target: {fileID: 4103578078186647047, guid: 2cf8e8539a9d02948b1741c792976ebc, type: 3}
       propertyPath: m_Color.b
       value: 0.4117647
