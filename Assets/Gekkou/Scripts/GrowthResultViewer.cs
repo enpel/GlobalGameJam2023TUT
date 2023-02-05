@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using Gekkou;
 
 public class GrowthResultViewer : MonoBehaviour
 {
@@ -15,7 +16,7 @@ public class GrowthResultViewer : MonoBehaviour
 
     private void ResultView()
     {
-        var param = GrowthParameterManager.Instance.CurrentGrowthParameters;
+        var param = SaveSystemManager.Instance.SaveData.seedParameters;
 
         // 仮作成
         var text = "";

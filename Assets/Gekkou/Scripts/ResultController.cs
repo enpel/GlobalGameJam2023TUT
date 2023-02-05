@@ -2,37 +2,76 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 using Gekkou;
+using DG.Tweening;
 
 public class ResultController : MonoBehaviour
 {
+    [SerializeField, EnumIndex(typeof(PlayerGrowthParameters.GrowthType))]
+    private TextMeshProUGUI[] _viewLabels = new TextMeshProUGUI[4];
+    [SerializeField, EnumIndex(typeof(PlayerGrowthParameters.GrowthType))]
+    private Image[] _gageImage = new Image[4];
     [SerializeField]
-    private Button _retryButton;
-    [SerializeField]
-    private Button _titleButton;
-    public AudioClip sound1;
-    public AudioClip sound2;
-    AudioSource audioSource;
+    private TextMeshProUGUI _nameLabel;
 
+    [SerializeField]
+    private float _gameMaxRate = 10000;
+    [SerializeField]
+    private SpeciesDataBase _speciesDataBase;
+    [SerializeField]
+    private Timer _countTimer;
 
     private void Start()
     {
-        _retryButton.onClick.AddListener(OnClickRetry);
-        _titleButton.onClick.AddListener(OnClickTitle);
-        audioSource = GetComponent<AudioSource>();
+        SetViewLabels();
     }
 
-    public void OnClickRetry()
+    public void SetViewLabels()
     {
-        // game scene に移動
-        SceneSystemManager.Instance.SceneLoading(Scene.PrototypeScene);
-        audioSource.PlayOneShot(sound1);
+        StartCoroutine(ViewUpdate());
     }
 
-    public void OnClickTitle()
+    private IEnumerator ViewUpdate()
     {
-        // title scene に移動
-        SceneSystemManager.Instance.SceneLoading(Scene.TitleScene);
-        audioSource.PlayOneShot(sound2);
+        var old = PlayerGrowthParameters.Instance.StartParameter;
+        var current = PlayerGrowthParameters.Instance.CurrentGrowthParameter;
+        _nameLabel.SetText(_speciesDataBase.GetSpeciesData(current).SpeciesName_jp);
+
+        for (int i = 0; i < 4; i++)
+        {
+            var num = old[i];
+
+            _viewLabels[i].SetText(num.ToString());
+            _gageImage[i].fillAmount = Mathf.Clamp01(num / _gameMaxRate);
+        }
+
+        yield return new WaitForSeconds(0.1f);
+
+        while (true)
+        {
+            if (_countTimer.UpdateTimer())
+            {
+                break;
+            }
+
+            for (int i = 0; i < 4; i++)
+            {
+                var num = Mathf.Lerp(old[i], current[i], _countTimer.TimeRate);
+
+                _viewLabels[i].SetText(((int)num).ToString("N0"));
+                _gageImage[i].fillAmount = Mathf.Clamp01(num / _gameMaxRate);
+            }
+
+            yield return null;
+        }
+
+        for (int i = 0; i < 4; i++)
+        {
+            var num = current[i];
+
+            _viewLabels[i].SetText(num.ToString());
+            _gageImage[i].fillAmount = Mathf.Clamp01(num / _gameMaxRate);
+        }
     }
 }
