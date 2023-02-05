@@ -4497,7 +4497,7 @@ GameObject:
   - component: {fileID: 1127744196}
   - component: {fileID: 1127744199}
   m_Layer: 5
-  m_Name: setting
+  m_Name: locale
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4567,7 +4567,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1127744197}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1127744199}
+        m_TargetAssemblyTypeName: ChangeLocaleButton, Assembly-CSharp
+        m_MethodName: OnChangeLocale
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1127744197
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5246,7 +5258,7 @@ MonoBehaviour:
     m_TableReference:
       m_TableCollectionName: GUID:32661c39bff367a4894e9e78aa514092
     m_TableEntryReference:
-      m_KeyId: 153131706793984
+      m_KeyId: 199654821904384
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
@@ -5409,6 +5421,14 @@ PrefabInstance:
     - target: {fileID: 6547506881933856552, guid: 855c4ab9e86fd1a43bacf48c12e351cb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6547506881933856553, guid: 855c4ab9e86fd1a43bacf48c12e351cb, type: 3}
+      propertyPath: _maxX
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 6547506881933856553, guid: 855c4ab9e86fd1a43bacf48c12e351cb, type: 3}
+      propertyPath: _minX
+      value: -50
       objectReference: {fileID: 0}
     - target: {fileID: 6547506881933856553, guid: 855c4ab9e86fd1a43bacf48c12e351cb, type: 3}
       propertyPath: _growthSpeedCurve.m_Curve.Array.size
