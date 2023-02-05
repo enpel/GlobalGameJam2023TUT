@@ -6,7 +6,7 @@ using DG.Tweening;
 
 public class GameSystemController : SingletonMonobehavior<GameSystemController>
 {
-    public bool IsGameLevelStop = false;
+    public bool IsGameLevelStop = true;
 
     [SerializeField]
     private GameObject _titleLevelObj;
@@ -27,6 +27,8 @@ public class GameSystemController : SingletonMonobehavior<GameSystemController>
     private GameObject _resultLevelObj;
     [SerializeField]
     private AudioClip _resultBGM;
+    [SerializeField]
+    private SeedViewer _resultSeed;
 
     [SerializeField]
     private GameObject _handObj;
@@ -36,8 +38,6 @@ public class GameSystemController : SingletonMonobehavior<GameSystemController>
     [SerializeField]
     private float _handMoveTime = 2.0f;
 
-    [SerializeField]
-    private GameObject _seedObj;
 
     public enum GameLevel
     {
@@ -98,7 +98,6 @@ public class GameSystemController : SingletonMonobehavior<GameSystemController>
                 break;
             case GameLevel.Game:
                 BGMManager.Instance.FadeAudio(_gameBGM);
-                IsGameLevelStop = false;
                 handTween = _handObj.transform.DOMove(_handPoses[(int)HandPos.Start].position, _handMoveTime);
                 handTween2 = _handObj.transform.DORotateQuaternion(_handPoses[(int)HandPos.Start].rotation, _handMoveTime);
                 break;
@@ -107,6 +106,7 @@ public class GameSystemController : SingletonMonobehavior<GameSystemController>
                 handTween = _handObj.transform.DOMove(_handPoses[(int)HandPos.Wait].position, _handMoveTime);
                 handTween2 = _handObj.transform.DORotateQuaternion(_handPoses[(int)HandPos.Wait].rotation, _handMoveTime);
                 IsGameLevelStop = true;
+                _resultSeed.ChangeView(GrowthParameterManager.Instance.CurrentGrowthParameters);
                 break;
             default:
                 break;
