@@ -11,11 +11,13 @@ public class OptionManager : SingletonMonobehavior<OptionManager>
     public void EnableOption()
     {
         _optionObject.SetActive(true);
+        UISoundManager.Instance.PlaySuccess();
     }
 
     public void DisableOption()
     {
         _optionObject.SetActive(false);
+        UISoundManager.Instance.PlayFailure();
     }
 
 
