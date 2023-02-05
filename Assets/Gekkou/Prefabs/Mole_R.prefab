@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8484010449031852500}
   - component: {fileID: 8484010449031852507}
   m_Layer: 0
-  m_Name: Mole 3
+  m_Name: Mole_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -147,10 +147,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9408c5d3db5144c46a8707e789c64604, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _nutritionType: 0
+  _nutritionType: 1
   _growthType: 0
-  _nutritionQuantity: 15
-  _resistPenetrationPower: 0
+  _nutritionQuantity: 60
+  _resistPenetrationPower: 2000
   _disableTime: 1.5
   _moveSpeed: 50
   _rotateSpeed: 0.01
@@ -160,6 +160,7 @@ MonoBehaviour:
     _elaspedTime: 0
   _rigidbody: {fileID: 8484010449031852500}
   _animator: {fileID: 900036712865915103}
+  timeManager: {fileID: 0}
 --- !u!1001 &900036714246582567
 PrefabInstance:
   m_ObjectHideFlags: 0

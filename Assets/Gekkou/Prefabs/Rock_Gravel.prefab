@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 962493831535786511}
   - component: {fileID: 1138957046555957100}
   - component: {fileID: 5926568071948094363}
+  - component: {fileID: -3220737063023630924}
   m_Layer: 0
   m_Name: Rock_Gravel
   m_TagString: Untagged
@@ -151,10 +152,11 @@ MonoBehaviour:
   _nutritionType: 1
   _growthType: 5
   _nutritionQuantity: 10
-  _resistPenetrationPower: 20
+  _resistPenetrationPower: 100
   _disableTime: 0.1
   sound1: {fileID: 8300000, guid: 79e17519a04721245b34263a5dc1c766, type: 3}
   sound2: {fileID: 8300000, guid: 524bb13627cddc349b7473a484256703, type: 3}
+  timeManager: {fileID: 0}
 --- !u!82 &5926568071948094363
 AudioSource:
   m_ObjectHideFlags: 0
@@ -251,6 +253,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-3220737063023630924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 962493831535786497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 970a696952aa0d546a6d92aeaf036af0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioType: 1
+  audioSource: {fileID: 5926568071948094363}
 --- !u!1 &2079806214958926438
 GameObject:
   m_ObjectHideFlags: 0
