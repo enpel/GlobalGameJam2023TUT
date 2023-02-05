@@ -3155,6 +3155,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   patterns:
   - {fileID: 2078945019631046029, guid: 313f7bba30f0bb148a82a72abdf18a9c, type: 3}
+  - {fileID: 8940176111931917893, guid: 1562237cf226c9a46b133a805b729f73, type: 3}
 --- !u!4 &2036887859
 Transform:
   m_ObjectHideFlags: 0
