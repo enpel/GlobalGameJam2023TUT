@@ -16,6 +16,11 @@ public class SelectController : MonoBehaviour
     private Button _rightSelectButton;
 
     [SerializeField]
+    private TextMeshProUGUI _nameLabel;
+    [SerializeField]
+    private SpeciesDataBase _speciesDataBase;
+
+    [SerializeField]
     private SeedViewer _seedViewer;
     private bool isNoSave = false;
 
@@ -66,6 +71,8 @@ public class SelectController : MonoBehaviour
         {
             _viewLabels[i].SetText(values[i] + "/1000000");
         }
+
+        _nameLabel.SetText(_speciesDataBase.GetSpeciesData(values).SpeciesName_jp);
     }
 
     public void LeftButton()
@@ -111,7 +118,6 @@ public class SelectController : MonoBehaviour
 
     private void ChangeViewer()
     {
-        Log.Info($"Seed:{_currentSelectType.ToString()}");
         if (_currentSelectType == SelectSeedType.Save)
         {
             _seedViewer.ChangeView(GrowthParameterManager.Instance.GrowthParameters);

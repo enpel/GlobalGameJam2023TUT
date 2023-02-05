@@ -7,11 +7,14 @@ public class SeedViewer : MonoBehaviour
     [SerializeField]
     private SpeciesDataBase _speciesDataBase;
     [SerializeField]
-    private SpriteRenderer _seedSprite;
+    private SpriteRenderer[] _seedSprites;
 
     public void ChangeView(int[] param)
     {
         var data = _speciesDataBase.GetSpeciesData(param);
-        _seedSprite.color = data.SpeciesColor;
+        for (int i = 0; i < _seedSprites.Length; i++)
+        {
+            _seedSprites[i].color = data.SpeciesColor;
+        }
     }
 }

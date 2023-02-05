@@ -98,4 +98,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speciesDataBase: {fileID: 11400000, guid: f013816d9940b4b4eb2bc57d4865b8b6, type: 2}
-  _seedSprite: {fileID: 6111590826062011391}
+  _seedSprites:
+  - {fileID: 6111590826062011391}
