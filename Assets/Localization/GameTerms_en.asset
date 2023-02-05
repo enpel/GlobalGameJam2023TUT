@@ -74,6 +74,18 @@ MonoBehaviour:
     m_Localized: 'Absorption:'
     m_Metadata:
       m_Items: []
+  - m_Id: 182010601324544
+    m_Localized: Back
+    m_Metadata:
+      m_Items: []
+  - m_Id: 182297550438400
+    m_Localized: Start
+    m_Metadata:
+      m_Items: []
+  - m_Id: 183669834432512
+    m_Localized: GameClear
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

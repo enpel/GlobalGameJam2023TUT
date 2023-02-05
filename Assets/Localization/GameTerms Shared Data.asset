@@ -71,6 +71,18 @@ MonoBehaviour:
     m_Key: AbsorptionValue
     m_Metadata:
       m_Items: []
+  - m_Id: 182010601324544
+    m_Key: Back
+    m_Metadata:
+      m_Items: []
+  - m_Id: 182297550438400
+    m_Key: Start
+    m_Metadata:
+      m_Items: []
+  - m_Id: 183669834432512
+    m_Key: GameClear
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

@@ -44,3 +44,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7cf270a6807508439fbd62b1fef4b21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  reference:
+    m_TableCollectionName: GameTerms
