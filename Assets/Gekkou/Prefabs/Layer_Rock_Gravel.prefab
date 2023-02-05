@@ -108,7 +108,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 24, y: 2, z: 0.2}
+  m_Size: {x: 120, y: 2, z: 0.2}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &3154564421396735617
 Rigidbody:
@@ -154,7 +154,11 @@ MonoBehaviour:
   _nutritionQuantity: 10
   _resistPenetrationPower: 20
   _disableTime: 0.5
-  source: {fileID: 6222144196851046607}
+  sound1: {fileID: 8300000, guid: 79e17519a04721245b34263a5dc1c766, type: 3}
+  sound2: {fileID: 8300000, guid: 524bb13627cddc349b7473a484256703, type: 3}
+  audioSource: {fileID: 6222144196851046607}
+  timeManager: {fileID: 0}
+  m_fibMgr: {fileID: 0}
 --- !u!82 &6222144196851046607
 AudioSource:
   m_ObjectHideFlags: 0
