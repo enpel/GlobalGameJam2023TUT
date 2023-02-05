@@ -40,7 +40,6 @@ public class PlayerGrowthParameters : SingletonMonobehavior<PlayerGrowthParamete
 
     protected override void Awake()
     {
-        SettingParameter();
         Instance = this;
     }
 
@@ -86,10 +85,8 @@ public class PlayerGrowthParameters : SingletonMonobehavior<PlayerGrowthParamete
         GrowthParameterManager.Instance.UploadParameter(_growthParameters);
     }
 
-    private void SettingParameter()
+    public void SettingParameter(int[] param)
     {
-        var param = GrowthParameterManager.Instance.GrowthParameters;
-
         for (int i = 0; i < _growthParameters.Length; i++)
         {
             _growthParameters[i] = param[i];

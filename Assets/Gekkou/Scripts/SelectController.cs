@@ -14,6 +14,10 @@ public class SelectController : MonoBehaviour
     private Button _leftSelectButton;
     [SerializeField]
     private Button _rightSelectButton;
+    [SerializeField]
+    private Button _startButton;
+    [SerializeField]
+    private GameObject _saveSeedLabel;
 
     [SerializeField]
     private TextMeshProUGUI _nameLabel;
@@ -51,6 +55,7 @@ public class SelectController : MonoBehaviour
     {
         _leftSelectButton.onClick.AddListener(LeftButton);
         _rightSelectButton.onClick.AddListener(RightButton);
+        _startButton.onClick.AddListener(SelectCorrect);
 
         var param = GrowthParameterManager.Instance.GrowthParameters;
         for (int i = 0; i < param.Length; i++)
@@ -118,6 +123,7 @@ public class SelectController : MonoBehaviour
 
     private void ChangeViewer()
     {
+        _saveSeedLabel.SetActive(_currentSelectType == SelectSeedType.Save);
         if (_currentSelectType == SelectSeedType.Save)
         {
             _seedViewer.ChangeView(GrowthParameterManager.Instance.GrowthParameters);
@@ -128,5 +134,13 @@ public class SelectController : MonoBehaviour
             _seedViewer.ChangeView(_selectSeeds[(int)_currentSelectType].Parameter);
             SetViewLabels(_selectSeeds[(int)_currentSelectType].Parameter);
         }
+    }
+
+    public void SelectCorrect()
+    {
+        if (_currentSelectType == SelectSeedType.Save)
+            PlayerGrowthParameters.Instance.SettingParameter(GrowthParameterManager.Instance.GrowthParameters);
+        else
+            PlayerGrowthParameters.Instance.SettingParameter(_selectSeeds[(int)_currentSelectType].Parameter);
     }
 }

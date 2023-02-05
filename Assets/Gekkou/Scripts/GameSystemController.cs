@@ -6,7 +6,7 @@ using DG.Tweening;
 
 public class GameSystemController : SingletonMonobehavior<GameSystemController>
 {
-    public bool IsGameLevelStop = false;
+    public bool IsGameLevelStop = true;
 
     [SerializeField]
     private GameObject _titleLevelObj;
@@ -98,7 +98,6 @@ public class GameSystemController : SingletonMonobehavior<GameSystemController>
                 break;
             case GameLevel.Game:
                 BGMManager.Instance.FadeAudio(_gameBGM);
-                IsGameLevelStop = false;
                 handTween = _handObj.transform.DOMove(_handPoses[(int)HandPos.Start].position, _handMoveTime);
                 handTween2 = _handObj.transform.DORotateQuaternion(_handPoses[(int)HandPos.Start].rotation, _handMoveTime);
                 break;
