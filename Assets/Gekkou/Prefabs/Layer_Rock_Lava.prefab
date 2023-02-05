@@ -22,7 +22,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3497698992417321852, guid: 0837ef81da547aa40ac9f19f4104f288, type: 3}
       propertyPath: _resistPenetrationPower
-      value: 150
+      value: 3500
       objectReference: {fileID: 0}
     - target: {fileID: 4691505065639557267, guid: 0837ef81da547aa40ac9f19f4104f288, type: 3}
       propertyPath: m_Color.b
