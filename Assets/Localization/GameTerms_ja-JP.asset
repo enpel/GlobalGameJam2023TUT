@@ -98,6 +98,10 @@ MonoBehaviour:
     m_Localized: CREDIT
     m_Metadata:
       m_Items: []
+  - m_Id: 254381655900160
+    m_Localized: "\u904A\u3073\u65B9"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
