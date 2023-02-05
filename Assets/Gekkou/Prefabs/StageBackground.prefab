@@ -78,7 +78,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 2
-  m_Size: {x: 24, y: 1}
+  m_Size: {x: 120, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -149,6 +149,10 @@ PrefabInstance:
     - target: {fileID: 3497698992417321852, guid: 0837ef81da547aa40ac9f19f4104f288, type: 3}
       propertyPath: _resistPenetrationPower
       value: 100000000
+      objectReference: {fileID: 0}
+    - target: {fileID: 4691505065639557267, guid: 0837ef81da547aa40ac9f19f4104f288, type: 3}
+      propertyPath: m_Size.x
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 4691505065639557267, guid: 0837ef81da547aa40ac9f19f4104f288, type: 3}
       propertyPath: m_Color.b
@@ -233,6 +237,10 @@ PrefabInstance:
       value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 242472769226400213, guid: ac68d163cda870549871e8bc51df36d9, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 242472769226400213, guid: ac68d163cda870549871e8bc51df36d9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -272,6 +280,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 242472769226400214, guid: ac68d163cda870549871e8bc51df36d9, type: 3}
+      propertyPath: m_Size.x
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 242472769226400215, guid: ac68d163cda870549871e8bc51df36d9, type: 3}
       propertyPath: m_Name
       value: Background_Lava
@@ -294,6 +306,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6320895040915365770}
     m_Modifications:
+    - target: {fileID: 4988434733363253912, guid: b0afbe565531de145964a4e5448323dd, type: 3}
+      propertyPath: m_Size.x
+      value: 120
+      objectReference: {fileID: 0}
     - target: {fileID: 4988434733363253913, guid: b0afbe565531de145964a4e5448323dd, type: 3}
       propertyPath: m_Name
       value: Background_HardRock
@@ -408,6 +424,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Background_Gravel
       objectReference: {fileID: 0}
+    - target: {fileID: 4669132281055844511, guid: 1a23837ad7fe6d44eb0e7bde852e1eea, type: 3}
+      propertyPath: m_Size.x
+      value: 120
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -469,6 +489,10 @@ PrefabInstance:
     - target: {fileID: 1429226955918808307, guid: 4fc2d26d51a057146b0e16d76590192f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4137032340754068182, guid: 4fc2d26d51a057146b0e16d76590192f, type: 3}
+      propertyPath: m_Size.x
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 8059192935922205771, guid: 4fc2d26d51a057146b0e16d76590192f, type: 3}
       propertyPath: m_Name
@@ -540,6 +564,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4597341374480963618, guid: d34e92886f0a6da43897f85021e092ec, type: 3}
+      propertyPath: m_Size.x
+      value: 120
+      objectReference: {fileID: 0}
     - target: {fileID: 7601152750854680255, guid: d34e92886f0a6da43897f85021e092ec, type: 3}
       propertyPath: m_Name
       value: Layer_Rock_HardRock
@@ -566,6 +594,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6320895040915365770}
     m_Modifications:
+    - target: {fileID: 84292558269695290, guid: 6ef8603b0ab3de34390ad23bfdfeee5c, type: 3}
+      propertyPath: m_Size.x
+      value: 120
+      objectReference: {fileID: 0}
     - target: {fileID: 3141090333989348127, guid: 6ef8603b0ab3de34390ad23bfdfeee5c, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -684,6 +716,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Background_Land
       objectReference: {fileID: 0}
+    - target: {fileID: 4669132281055844511, guid: ec7fce1182d42404baa26edb0d82f27c, type: 3}
+      propertyPath: m_Size.x
+      value: 120
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -705,6 +741,10 @@ PrefabInstance:
     - target: {fileID: 4005550839272777708, guid: 90ba1079e03e0034dafa3211e4d0100c, type: 3}
       propertyPath: m_RootOrder
       value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4005550839272777708, guid: 90ba1079e03e0034dafa3211e4d0100c, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 4005550839272777708, guid: 90ba1079e03e0034dafa3211e4d0100c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -750,6 +790,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Background_Fossile
       objectReference: {fileID: 0}
+    - target: {fileID: 4005550839272777711, guid: 90ba1079e03e0034dafa3211e4d0100c, type: 3}
+      propertyPath: m_Size.x
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -775,6 +819,10 @@ PrefabInstance:
     - target: {fileID: 1705213582791003662, guid: 0837ef81da547aa40ac9f19f4104f288, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4691505065639557267, guid: 0837ef81da547aa40ac9f19f4104f288, type: 3}
+      propertyPath: m_Size.x
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 7757311435404926646, guid: 0837ef81da547aa40ac9f19f4104f288, type: 3}
       propertyPath: m_RootOrder
