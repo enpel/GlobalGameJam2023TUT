@@ -15,6 +15,14 @@ public class GrowthParameterManager : SingletonMonobehavior<GrowthParameterManag
     [SerializeField]
     private AnimationCurve _addRateCurve;
 
+    private void Start()
+    {
+        for (int i = 0; i < _growthParameters.Length; i++)
+        {
+            _growthParameters[i] = SaveSystemManager.Instance.SaveData.seedParameters[i];
+        }
+    }
+
     public void UploadParameter(int[] param)
     {
         // 今回のパラメータを保存

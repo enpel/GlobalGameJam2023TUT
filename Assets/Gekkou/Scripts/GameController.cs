@@ -19,6 +19,7 @@ public class GameController : MonoBehaviour
     {
         yield return new WaitForSeconds(_startWaitTime);
 
+        PlayerGrowthParameters.Instance.UploadPlayerStatus();
         GameSystemController.Instance.IsGameLevelStop = false;
 
         // ここで栄養の自動生成とかを行う
