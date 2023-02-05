@@ -30,6 +30,8 @@ namespace Gekkou
                 SoundManager.AudioType.Master => soundManager.MasterVolume,
                 _ => 0.5f,
             };
+
+            audioSlider.onValueChanged.AddListener(ChangeVolume);
         }
 
         public void ChangeVolume(float volume)

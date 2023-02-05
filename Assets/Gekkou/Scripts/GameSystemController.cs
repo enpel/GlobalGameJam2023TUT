@@ -121,4 +121,13 @@ public class GameSystemController : SingletonMonobehavior<GameSystemController>
         _currentLevel = nextLevel;
     }
 
+    public void OnQuitGame()
+    {
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#elif UNITY_STANDALONE
+        Application.Quit();
+#endif
+    }
+
 }
