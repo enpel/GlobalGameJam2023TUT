@@ -17,6 +17,12 @@ public class PlayerGrowthParameters : SingletonMonobehavior<PlayerGrowthParamete
 
     [SerializeField, ReadOnly, EnumIndex(typeof(GrowthType))]
     private int[] _growthParameters = new int[4];
+    public int[] CurrentGrowthParameter { get => _growthParameters; }
+
+    public int[] StartParameter { get; private set; } = new int[4];
+
+    [SerializeField]
+    private AnimationCurve _addRateCurve;
 
     /// <summary> 貫通力 </summary>
     public int PenetrationgPower { get => _growthParameters[(int)GrowthType.Penetration]; }
@@ -80,9 +86,20 @@ public class PlayerGrowthParameters : SingletonMonobehavior<PlayerGrowthParamete
         PlayerMovementController.Instance.GrowthRate = _growthParameters[(int)GrowthType.Growth];
     }
 
+    /// <summary>
+    /// 引継ぎに保存する
+    /// </summary>
     public void UploadParameter()
     {
-        GrowthParameterManager.Instance.UploadParameter(_growthParameters);
+        var num = new int[4];
+        var addDouble = _addRateCurve.Evaluate(_growthParameters[(int)GrowthType.Beauty]);
+        for (int i = 0; i < num.Length; i++)
+        {
+            var diff = _growthParameters[i] - StartParameter[i];
+            num[i] = StartParameter[i] + Mathf.CeilToInt(diff * addDouble);
+        }
+
+        SaveSystemManager.Instance.Saving(num);
     }
 
     public void SettingParameter(int[] param)
@@ -90,6 +107,7 @@ public class PlayerGrowthParameters : SingletonMonobehavior<PlayerGrowthParamete
         for (int i = 0; i < _growthParameters.Length; i++)
         {
             _growthParameters[i] = param[i];
+            StartParameter[i] = param[i];
         }
     }
 }
