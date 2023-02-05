@@ -29,6 +29,9 @@ namespace Gekkou
         /// </summary>
         public void ChangeAudio(AudioClip newClip)
         {
+            if (soundManager == null)
+                soundManager = SoundManager.Instance;
+
             var newIndex = mainAudioIndex + 1;
             if (newIndex >= audioSources.Length) newIndex = 0;
 
@@ -63,6 +66,9 @@ namespace Gekkou
         private IEnumerator FadeAudio(int newIndex, float fadeTime)
         {
             audioSources[newIndex].Play();
+
+            if (soundManager == null)
+                soundManager = SoundManager.Instance;
 
             /*
             {

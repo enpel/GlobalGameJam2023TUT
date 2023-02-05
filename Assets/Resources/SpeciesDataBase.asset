@@ -12,34 +12,158 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d223a558ec9c0c4448f0ce11c288dd88, type: 3}
   m_Name: SpeciesDataBase
   m_EditorClassIdentifier: 
-  SpeciesDatas:
-  - SpeciesName_jp: "\u5F37\u529B\u306A\u7A2E"
+  _AllDatas:
+  - SpeciesName_jp: "\u4F1D\u8AAC\u306E\u54C1\u7A2E"
     SpeciesName_en: 
-    ConditionsSpeciesParameters: 0a0000000a0000000a0000000a000000
-    SpeciesColor: {r: 0.5283019, g: 0.5283019, b: 0.5283019, a: 1}
-    TreeColor: {r: 0.5294118, g: 0.5294118, b: 0.5294118, a: 1}
-  - SpeciesName_jp: "\u8CAB\u901A\u306E\u82E5\u7A2E"
+    ConditionsSpeciesParameter: 10000
+    AddOutstanding: 2000
+    SpeciesColor: {r: 1, g: 0, b: 0, a: 1}
+    TreeColor: {r: 1, g: 0, b: 0, a: 1}
+  - SpeciesName_jp: "\u6700\u5F37\u306E\u54C1\u7A2E"
     SpeciesName_en: 
-    ConditionsSpeciesParameters: 0a000000000000000000000000000000
-    SpeciesColor: {r: 1, g: 0.52324545, b: 0.36320752, a: 1}
-    TreeColor: {r: 1, g: 0.52156866, b: 0.3647059, a: 1}
-  - SpeciesName_jp: "\u65E9\u3055\u306E\u82E5\u7A2E"
+    ConditionsSpeciesParameter: 1000
+    AddOutstanding: 200
+    SpeciesColor: {r: 1, g: 0.33490568, b: 0.33490568, a: 1}
+    TreeColor: {r: 1, g: 0.33333334, b: 0.33333334, a: 1}
+  - SpeciesName_jp: "\u5F37\u976D\u306A\u54C1\u7A2E"
     SpeciesName_en: 
-    ConditionsSpeciesParameters: 000000000a0000000000000000000000
-    SpeciesColor: {r: 0.36470592, g: 1, b: 0.8696799, a: 1}
-    TreeColor: {r: 0.3647059, g: 1, b: 0.8705883, a: 1}
-  - SpeciesName_jp: "\u7F8E\u529B\u306E\u82E5\u7A2E"
+    ConditionsSpeciesParameter: 100
+    AddOutstanding: 20
+    SpeciesColor: {r: 1, g: 0.5424528, b: 0.5424528, a: 1}
+    TreeColor: {r: 1, g: 0.5411765, b: 0.5411765, a: 1}
+  - SpeciesName_jp: "\u5F37\u529B\u306A\u54C1\u7A2E"
     SpeciesName_en: 
-    ConditionsSpeciesParameters: 00000000000000000a00000000000000
-    SpeciesColor: {r: 1, g: 0.36470592, b: 0.9298222, a: 1}
-    TreeColor: {r: 1, g: 0.3647059, b: 0.9294118, a: 1}
-  - SpeciesName_jp: "\u5438\u53CE\u306E\u82E5\u7A2E"
+    ConditionsSpeciesParameter: 10
+    AddOutstanding: 2
+    SpeciesColor: {r: 1, g: 0.7216981, b: 0.7216981, a: 1}
+    TreeColor: {r: 1, g: 0.72156864, b: 0.72156864, a: 1}
+  - SpeciesName_jp: "\u59CB\u307E\u308A\u306E\u54C1\u7A2E"
     SpeciesName_en: 
-    ConditionsSpeciesParameters: 0000000000000000000000000a000000
-    SpeciesColor: {r: 1, g: 0.87372804, b: 0.36470592, a: 1}
-    TreeColor: {r: 1, g: 0.8745099, b: 0.3647059, a: 1}
-  - SpeciesName_jp: "\u59CB\u307E\u308A\u306E\u7A2E"
-    SpeciesName_en: 
-    ConditionsSpeciesParameters: 00000000000000000000000000000000
+    ConditionsSpeciesParameter: 0
+    AddOutstanding: 1
     SpeciesColor: {r: 1, g: 1, b: 1, a: 1}
     TreeColor: {r: 1, g: 1, b: 1, a: 1}
+  _PenetrationDatas:
+  - SpeciesName_jp: "\u8CAB\u901A\u306E\u4F1D\u8AAC\u7A2E"
+    SpeciesName_en: 
+    ConditionsSpeciesParameter: 12000
+    AddOutstanding: 0
+    SpeciesColor: {r: 1, g: 0, b: 0.7074199, a: 1}
+    TreeColor: {r: 1, g: 0, b: 0.7058824, a: 1}
+  - SpeciesName_jp: "\u8CAB\u901A\u306E\u6700\u5F37\u7A2E"
+    SpeciesName_en: 
+    ConditionsSpeciesParameter: 1200
+    AddOutstanding: 0
+    SpeciesColor: {r: 1, g: 0.25, b: 0.77941155, a: 1}
+    TreeColor: {r: 1, g: 0.2509804, b: 0.7803922, a: 1}
+  - SpeciesName_jp: "\u8CAB\u901A\u306E\u5F37\u976D\u7A2E"
+    SpeciesName_en: 
+    ConditionsSpeciesParameter: 120
+    AddOutstanding: 0
+    SpeciesColor: {r: 1, g: 0.514151, b: 0.8571031, a: 1}
+    TreeColor: {r: 1, g: 0.5137255, b: 0.8588236, a: 1}
+  - SpeciesName_jp: "\u8CAB\u901A\u306E\u5F37\u529B\u7A2E"
+    SpeciesName_en: 
+    ConditionsSpeciesParameter: 12
+    AddOutstanding: 0
+    SpeciesColor: {r: 1, g: 0.759434, b: 0.92924523, a: 1}
+    TreeColor: {r: 1, g: 0.7607844, b: 0.9294118, a: 1}
+  - SpeciesName_jp: "\u8CAB\u901A\u306E\u82E5\u7A2E"
+    SpeciesName_en: 
+    ConditionsSpeciesParameter: 1
+    AddOutstanding: 0
+    SpeciesColor: {r: 1, g: 0.8235295, b: 0.9490197, a: 1}
+    TreeColor: {r: 1, g: 0.8254717, b: 0.9486681, a: 1}
+  _GrowthDatas:
+  - SpeciesName_jp: "\u901F\u5EA6\u306E\u4F1D\u8AAC\u7A2E"
+    SpeciesName_en: 
+    ConditionsSpeciesParameter: 12000
+    AddOutstanding: 0
+    SpeciesColor: {r: 0.12519169, g: 0, b: 1, a: 1}
+    TreeColor: {r: 0.1254902, g: 0, b: 1, a: 1}
+  - SpeciesName_jp: "\u901F\u5EA6\u306E\u6700\u5F37\u7A2E"
+    SpeciesName_en: 
+    ConditionsSpeciesParameter: 1200
+    AddOutstanding: 0
+    SpeciesColor: {r: 0.36886793, g: 0.2783019, b: 1, a: 1}
+    TreeColor: {r: 0.36862746, g: 0.2784314, b: 1, a: 1}
+  - SpeciesName_jp: "\u901F\u5EA6\u306E\u5F37\u976D\u7A2E"
+    SpeciesName_en: 
+    ConditionsSpeciesParameter: 120
+    AddOutstanding: 0
+    SpeciesColor: {r: 0.6081206, g: 0.5518868, b: 1, a: 1}
+    TreeColor: {r: 0.60784316, g: 0.5529412, b: 1, a: 1}
+  - SpeciesName_jp: "\u901F\u5EA6\u306E\u5F37\u529B\u7A2E"
+    SpeciesName_en: 
+    ConditionsSpeciesParameter: 12
+    AddOutstanding: 0
+    SpeciesColor: {r: 0.731872, g: 0.6933962, b: 1, a: 1}
+    TreeColor: {r: 0.73333335, g: 0.69411767, b: 1, a: 1}
+  - SpeciesName_jp: "\u901F\u5EA6\u306E\u82E5\u7A2E"
+    SpeciesName_en: 
+    ConditionsSpeciesParameter: 1
+    AddOutstanding: 0
+    SpeciesColor: {r: 0.85562336, g: 0.8349056, b: 1, a: 1}
+    TreeColor: {r: 0.854902, g: 0.8352942, b: 1, a: 1}
+  _BeautyDatas:
+  - SpeciesName_jp: "\u7F8E\u529B\u306E\u4F1D\u8AAC\u7A2E"
+    SpeciesName_en: 
+    ConditionsSpeciesParameter: 12000
+    AddOutstanding: 0
+    SpeciesColor: {r: 0, g: 1, b: 0.7329502, a: 1}
+    TreeColor: {r: 0, g: 1, b: 0.73333335, a: 1}
+  - SpeciesName_jp: "\u7F8E\u529B\u306E\u6700\u5F37\u7A2E"
+    SpeciesName_en: 
+    ConditionsSpeciesParameter: 1200
+    AddOutstanding: 0
+    SpeciesColor: {r: 0.3066038, g: 1, b: 0.81509435, a: 1}
+    TreeColor: {r: 0.30588236, g: 1, b: 0.81568635, a: 1}
+  - SpeciesName_jp: "\u7F8E\u529B\u306E\u5F37\u976D\u7A2E"
+    SpeciesName_en: 
+    ConditionsSpeciesParameter: 120
+    AddOutstanding: 0
+    SpeciesColor: {r: 0.4764151, g: 1, b: 0.8603774, a: 1}
+    TreeColor: {r: 0.47450984, g: 1, b: 0.8588236, a: 1}
+  - SpeciesName_jp: "\u7F8E\u529B\u306E\u5F37\u529B\u7A2E"
+    SpeciesName_en: 
+    ConditionsSpeciesParameter: 12
+    AddOutstanding: 0
+    SpeciesColor: {r: 0.6556604, g: 1, b: 0.9081761, a: 1}
+    TreeColor: {r: 0.654902, g: 1, b: 0.909804, a: 1}
+  - SpeciesName_jp: "\u7F8E\u529B\u306E\u82E5\u7A2E"
+    SpeciesName_en: 
+    ConditionsSpeciesParameter: 1
+    AddOutstanding: 0
+    SpeciesColor: {r: 0.8537736, g: 1, b: 0.9620895, a: 1}
+    TreeColor: {r: 0.854902, g: 1, b: 0.9607844, a: 1}
+  _AbsorptionDatas:
+  - SpeciesName_jp: "\u5438\u53CE\u306E\u4F1D\u8AAC\u7A2E"
+    SpeciesName_en: 
+    ConditionsSpeciesParameter: 12000
+    AddOutstanding: 0
+    SpeciesColor: {r: 0, g: 1, b: 0.17609215, a: 1}
+    TreeColor: {r: 0, g: 1, b: 0.1764706, a: 1}
+  - SpeciesName_jp: "\u5438\u53CE\u306E\u6700\u5F37\u7A2E"
+    SpeciesName_en: 
+    ConditionsSpeciesParameter: 1200
+    AddOutstanding: 0
+    SpeciesColor: {r: 0.25, g: 1, b: 0.3823529, a: 1}
+    TreeColor: {r: 0.2509804, g: 1, b: 0.3803922, a: 1}
+  - SpeciesName_jp: "\u5438\u53CE\u306E\u5F37\u976D\u7A2E"
+    SpeciesName_en: 
+    ConditionsSpeciesParameter: 120
+    AddOutstanding: 0
+    SpeciesColor: {r: 0.495283, g: 1, b: 0.5843507, a: 1}
+    TreeColor: {r: 0.49411768, g: 1, b: 0.58431375, a: 1}
+  - SpeciesName_jp: "\u5438\u53CE\u306E\u5F37\u529B\u7A2E"
+    SpeciesName_en: 
+    ConditionsSpeciesParameter: 12
+    AddOutstanding: 0
+    SpeciesColor: {r: 0.5990566, g: 1, b: 0.6698113, a: 1}
+    TreeColor: {r: 0.6, g: 1, b: 0.67058825, a: 1}
+  - SpeciesName_jp: "\u5438\u53CE\u306E\u82E5\u7A2E"
+    SpeciesName_en: 
+    ConditionsSpeciesParameter: 1
+    AddOutstanding: 0
+    SpeciesColor: {r: 0.8066038, g: 1, b: 0.8407325, a: 1}
+    TreeColor: {r: 0.8078432, g: 1, b: 0.83921576, a: 1}
