@@ -72,6 +72,10 @@ public class PlayerGrowthParameters : SingletonMonobehavior<PlayerGrowthParamete
             _growthParameters[(int)type] += value;
         }
 
+        for (int i = 0; i < 4; i++)
+        {
+            _growthParameters[i] = Mathf.Min(_growthParameters[i], GameSystemController.MAX_STATUS_VALUE);
+        }
         if (type == GrowthType.Growth)
         {
             UploadPlayerStatus();
