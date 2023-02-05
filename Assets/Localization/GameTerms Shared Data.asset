@@ -87,6 +87,18 @@ MonoBehaviour:
     m_Key: ChangeLanguage
     m_Metadata:
       m_Items: []
+  - m_Id: 213803694927872
+    m_Key: Settings
+    m_Metadata:
+      m_Items: []
+  - m_Id: 226546157404160
+    m_Key: CREDIT
+    m_Metadata:
+      m_Items: []
+  - m_Id: 254381655900160
+    m_Key: HowTo
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

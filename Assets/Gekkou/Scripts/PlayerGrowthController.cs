@@ -7,6 +7,8 @@ public class PlayerGrowthController : MonoBehaviour
 {
     [SerializeField]
     private PlayerGrowthParameters _growthParameters;
+
+    [SerializeField] private AnimatableText effectText;
     //[SerializeField] GameObject particlePrefab;
     public AudioClip sound1;
     AudioSource audioSource;
@@ -34,6 +36,9 @@ public class PlayerGrowthController : MonoBehaviour
             nutrition.AbsorbedObject();
             audioSource.PlayOneShot(sound1);
             //timeManager.SlowDown();
+            
+            
+            effectText.PlayJump("+" + nutrition.NutritionQuantity);
         }
         else
         {

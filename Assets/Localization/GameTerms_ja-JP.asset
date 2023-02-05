@@ -90,6 +90,18 @@ MonoBehaviour:
     m_Localized: English
     m_Metadata:
       m_Items: []
+  - m_Id: 213803694927872
+    m_Localized: "\u8A2D\u5B9A"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 226546157404160
+    m_Localized: CREDIT
+    m_Metadata:
+      m_Items: []
+  - m_Id: 254381655900160
+    m_Localized: "\u904A\u3073\u65B9"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
